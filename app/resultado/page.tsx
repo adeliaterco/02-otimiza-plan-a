@@ -259,7 +259,7 @@ export default function ResultPageOptimized() {
             <div className="my-8">
               <div className="text-center mb-6">
                 <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
-                  💬 <span className="text-orange-400">DEPOIMENTO REAL</span> DE QUEM JÁ CONSEGUIU
+                  💬 <span className="text-orange-400">TESTIMONIO REAL </span> DE QUIEN YA LO LOGRÓ
                 </h3>
                 <p className="text-gray-300 text-sm sm:text-base px-4">
                   Escucha la historia de transformación usando exactamente el mismo método
