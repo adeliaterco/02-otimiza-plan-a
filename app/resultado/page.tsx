@@ -430,8 +430,8 @@ export default function ResultPageOptimized() {
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gray-200 overflow-hidden mr-3 sm:mr-4 flex-shrink-0">
                   <img
-                    src="https://comprarplanseguro.shop/wp-content/uploads/2025/08/Captura-de-Tela-2025-08-08-as-19.01.05.png"
-                    alt="David S."
+                    src="https://comprarplanseguro.shop/wp-content/uploads/2025/08/Captura-de-Tela-2025-08-08-as-19.24.05.png"
+                    alt="Santiago L."
                     className="w-full h-full object-cover"
                   />
                 </div>
