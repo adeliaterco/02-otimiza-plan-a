@@ -436,7 +436,7 @@ export default function ResultPageOptimized() {
                   />
                 </div>
                 <div className="text-left min-w-0">
-                  <h4 className="font-bold text-gray-900 text-sm sm:text-base">David S., 34 años</h4>
+                  <h4 className="font-bold text-gray-900 text-sm sm:text-base">Santiago L., 34 años</h4>
                   <div className="flex text-orange-500">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
