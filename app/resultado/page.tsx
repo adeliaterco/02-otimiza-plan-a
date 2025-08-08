@@ -892,4 +892,4 @@ export default function ResultPageOptimized() {
       `}</style>
     </div>
   )
-}
+} 
