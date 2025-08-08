@@ -446,7 +446,7 @@ export default function ResultPageOptimized() {
               </div>
               <p className="text-gray-700 text-sm sm:text-lg font-semibold mb-3">
                 "Ella había bloqueado mi número y decía que nunca más quería verme. Seguí el Plan A exactamente como
-                estaba escrito y en 18 días me llamó llorando pidiendo que volviéramos. ¡Hoy estamos comprometidos!"
+                estaba escrito y en 17 días me llamó llorando pidiendo que volviéramos. ¡Hoy estamos comprometidos!"
               </p>
               <div className="text-xs sm:text-sm text-green-600 font-bold">✅ Reconciliado hace 8 meses</div>
             </CardContent>
