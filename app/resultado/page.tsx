@@ -251,24 +251,24 @@ export default function ResultPageOptimized() {
                 👆 APLICA ESTO Y VERÁS RESULTADOS EN DÍAS
               </div>
 
-              {/* 🔥 SEÇÃO DE DEPOIMENTO EM VÍDEO STORY - ÚNICO VÍDEO */}
-              <div className="my-12">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">
+              {/* 🔥 SEÇÃO DE DEPOIMENTO EM VÍDEO STORY - TAMANHO REDUZIDO */}
+              <div className="my-8">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold text-white mb-2">
                     💬 <span className="text-orange-400">DEPOIMENTO REAL</span> DE QUEM JÁ CONSEGUIU
                   </h3>
-                  <p className="text-gray-300 text-lg">
+                  <p className="text-gray-300">
                     Escucha la historia de transformación usando exactamente el mismo método
                   </p>
                 </div>
 
-                {/* Container do Story Único */}
-                <div className="max-w-md mx-auto">
-                  <div className="relative bg-black rounded-3xl p-2 border-4 border-orange-500 shadow-2xl overflow-hidden">
+                {/* Container do Story Menor */}
+                <div className="max-w-xs mx-auto">
+                  <div className="relative bg-black rounded-2xl p-2 border-2 border-orange-500 shadow-xl overflow-hidden">
                     
-                    {/* Header do Story */}
-                    <div className="flex items-center p-3 pb-2">
-                      <div className="w-12 h-12 rounded-full border-2 border-orange-400 overflow-hidden mr-3">
+                    {/* Header do Story - Simplificado */}
+                    <div className="flex items-center p-2 pb-1">
+                      <div className="w-8 h-8 rounded-full border border-orange-400 overflow-hidden mr-2">
                         <img 
                           src="https://optimalhealthscout.shop/wp-content/uploads/2025/05/04-roberto.png"
                           alt="Carlos Mendoza"
@@ -276,17 +276,13 @@ export default function ResultPageOptimized() {
                         />
                       </div>
                       <div className="flex-1 text-left">
-                        <h4 className="text-white font-bold text-sm">Carlos Mendoza</h4>
-                        <p className="text-gray-300 text-xs">34 años</p>
+                        <h4 className="text-white font-bold text-xs">Carlos Mendoza</h4>
                         <p className="text-green-400 text-xs font-semibold">✅ Reconciliado en 18 días</p>
-                      </div>
-                      <div className="text-orange-400 text-xs font-bold">
-                        LIVE
                       </div>
                     </div>
 
-                    {/* Vídeo Story */}
-                    <div className="relative aspect-[9/16] bg-gray-900 rounded-2xl overflow-hidden">
+                    {/* Vídeo Story - Menor */}
+                    <div className="relative aspect-[9/16] bg-gray-900 rounded-xl overflow-hidden" style={{height: '280px'}}>
                       <script src="https://fast.wistia.com/player.js" async></script>
                       <script src="https://fast.wistia.com/embed/u24vsbymvw.js" async type="module"></script>
                       <wistia-player 
@@ -294,23 +290,16 @@ export default function ResultPageOptimized() {
                         aspect="0.5625"
                         className="w-full h-full"
                       ></wistia-player>
-
-                      {/* Overlay de preview */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                        <p className="text-white text-sm font-medium">
-                          "Ella había bloqueado mi número y pensé que todo había terminado..."
-                        </p>
-                      </div>
                     </div>
 
-                    {/* Footer com CTA */}
-                    <div className="p-4 text-center">
+                    {/* Footer com CTA - Compacto */}
+                    <div className="p-2 text-center">
                       <Button
                         onClick={handlePurchase}
-                        className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold py-3 px-6 rounded-full text-sm shadow-xl transition-all duration-300"
+                        className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold py-2 px-4 rounded-full text-xs shadow-lg transition-all duration-300"
                         onTouchStart={handleTouchFeedback}
                       >
-                        <Play className="w-4 h-4 mr-2" />
+                        <Play className="w-3 h-3 mr-1" />
                         QUIERO LOS MISMOS RESULTADOS
                       </Button>
                     </div>
