@@ -16,8 +16,6 @@ import {
   Target,
   Heart,
   Play,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -30,36 +28,7 @@ export default function ResultPageOptimized() {
   const [isLoaded, setIsLoaded] = useState(false)
   const [recentBuyers, setRecentBuyers] = useState(3)
   const [userGender, setUserGender] = useState<string>("")
-  const [currentStory, setCurrentStory] = useState(0)
   const contentRef = useRef<HTMLDivElement>(null)
-
-  // Stories de depoimentos
-  const videoStories = [
-    {
-      id: "6fyiaz12pl", // Mesmo ID do vídeo principal - você alterará depois
-      name: "María González",
-      age: "28 años",
-      result: "Reconciliada en 12 días",
-      thumbnail: "https://optimalhealthscout.shop/wp-content/uploads/2025/05/04-roberto.png",
-      preview: "Él me había bloqueado en todo..."
-    },
-    {
-      id: "6fyiaz12pl", // Mesmo ID do vídeo principal - você alterará depois
-      name: "Carlos Mendoza",
-      age: "34 años", 
-      result: "Volvieron después de 8 meses",
-      thumbnail: "https://optimalhealthscout.shop/wp-content/uploads/2025/05/04-roberto.png",
-      preview: "Pensé que era imposible pero..."
-    },
-    {
-      id: "6fyiaz12pl", // Mesmo ID do vídeo principal - você alterará depois
-      name: "Ana Silva",
-      age: "31 años",
-      result: "Comprometida hace 6 meses",
-      thumbnail: "https://optimalhealthscout.shop/wp-content/uploads/2025/05/04-roberto.png", 
-      preview: "El Plan A cambió mi vida..."
-    }
-  ]
 
   useEffect(() => {
     const savedBonuses = localStorage.getItem("unlockedBonuses")
@@ -82,11 +51,6 @@ export default function ResultPageOptimized() {
       })
     }, 30000)
 
-    // Auto-avançar stories a cada 8 segundos
-    const storyInterval = setInterval(() => {
-      setCurrentStory((prev) => (prev + 1) % videoStories.length)
-    }, 8000)
-
     // Registra visualización de la página de resultado
     try {
       enviarEvento("visualizou_resultado")
@@ -95,10 +59,7 @@ export default function ResultPageOptimized() {
       console.error("Error al registrar evento de visualización:", error)
     }
 
-    return () => {
-      clearInterval(interval)
-      clearInterval(storyInterval)
-    }
+    return () => clearInterval(interval)
   }, [])
 
   const handlePurchase = () => {
@@ -116,19 +77,11 @@ export default function ResultPageOptimized() {
     return userGender === "FEMININO" ? "él" : "ella"
   }
 
-  // Função para feedback táctil en dispositivos móviles
+  // Función para feedback táctil en dispositivos móviles
   const handleTouchFeedback = () => {
     if (navigator.vibrate) {
       navigator.vibrate(50)
     }
-  }
-
-  const nextStory = () => {
-    setCurrentStory((prev) => (prev + 1) % videoStories.length)
-  }
-
-  const prevStory = () => {
-    setCurrentStory((prev) => (prev - 1 + videoStories.length) % videoStories.length)
   }
 
   return (
@@ -298,61 +251,46 @@ export default function ResultPageOptimized() {
                 👆 APLICA ESTO Y VERÁS RESULTADOS EN DÍAS
               </div>
 
-              {/* 🔥 SEÇÃO DE COMENTÁRIOS EM VÍDEO STORY - POSIÇÃO ESTRATÉGICA */}
+              {/* 🔥 SEÇÃO DE DEPOIMENTO EM VÍDEO STORY - ÚNICO VÍDEO */}
               <div className="my-12">
                 <div className="text-center mb-8">
                   <h3 className="text-2xl font-bold text-white mb-2">
-                    💬 <span className="text-orange-400">PERSONAS REALES</span> QUE YA LO LOGRARON
+                    💬 <span className="text-orange-400">DEPOIMENTO REAL</span> DE QUEM JÁ CONSEGUIU
                   </h3>
                   <p className="text-gray-300 text-lg">
-                    Escucha sus historias de transformación usando exactamente el mismo método
+                    Escucha la historia de transformación usando exactamente el mismo método
                   </p>
                 </div>
 
-                {/* Container de Stories */}
+                {/* Container do Story Único */}
                 <div className="max-w-md mx-auto">
-                  <div className="relative bg-black rounded-3xl p-2 border-4 border-gradient-to-r from-orange-500 to-red-500 shadow-2xl overflow-hidden">
-                    {/* Indicadores de progreso */}
-                    <div className="flex gap-1 p-3 pb-2">
-                      {videoStories.map((_, index) => (
-                        <div
-                          key={index}
-                          className={`h-1 flex-1 rounded-full transition-all duration-300 ${
-                            index === currentStory 
-                              ? 'bg-orange-400' 
-                              : index < currentStory 
-                                ? 'bg-gray-400' 
-                                : 'bg-gray-600'
-                          }`}
-                        />
-                      ))}
-                    </div>
-
+                  <div className="relative bg-black rounded-3xl p-2 border-4 border-orange-500 shadow-2xl overflow-hidden">
+                    
                     {/* Header do Story */}
                     <div className="flex items-center p-3 pb-2">
                       <div className="w-12 h-12 rounded-full border-2 border-orange-400 overflow-hidden mr-3">
                         <img 
-                          src={videoStories[currentStory].thumbnail}
-                          alt={videoStories[currentStory].name}
+                          src="https://optimalhealthscout.shop/wp-content/uploads/2025/05/04-roberto.png"
+                          alt="Carlos Mendoza"
                           className="w-full h-full object-cover"
                         />
                       </div>
                       <div className="flex-1 text-left">
-                        <h4 className="text-white font-bold text-sm">{videoStories[currentStory].name}</h4>
-                        <p className="text-gray-300 text-xs">{videoStories[currentStory].age}</p>
-                        <p className="text-green-400 text-xs font-semibold">{videoStories[currentStory].result}</p>
+                        <h4 className="text-white font-bold text-sm">Carlos Mendoza</h4>
+                        <p className="text-gray-300 text-xs">34 años</p>
+                        <p className="text-green-400 text-xs font-semibold">✅ Reconciliado en 18 días</p>
                       </div>
-                      <div className="text-white text-xs">
-                        {currentStory + 1}/{videoStories.length}
+                      <div className="text-orange-400 text-xs font-bold">
+                        LIVE
                       </div>
                     </div>
 
                     {/* Vídeo Story */}
                     <div className="relative aspect-[9/16] bg-gray-900 rounded-2xl overflow-hidden">
                       <script src="https://fast.wistia.com/player.js" async></script>
-                      <script src={`https://fast.wistia.com/embed/${videoStories[currentStory].id}.js`} async type="module"></script>
+                      <script src="https://fast.wistia.com/embed/u24vsbymvw.js" async type="module"></script>
                       <wistia-player 
-                        media-id={videoStories[currentStory].id} 
+                        media-id="u24vsbymvw" 
                         aspect="0.5625"
                         className="w-full h-full"
                       ></wistia-player>
@@ -360,25 +298,9 @@ export default function ResultPageOptimized() {
                       {/* Overlay de preview */}
                       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                         <p className="text-white text-sm font-medium">
-                          "{videoStories[currentStory].preview}"
+                          "Ella había bloqueado mi número y pensé que todo había terminado..."
                         </p>
                       </div>
-
-                      {/* Controles de navegação */}
-                      <button
-                        onClick={prevStory}
-                        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all"
-                        onTouchStart={handleTouchFeedback}
-                      >
-                        <ChevronLeft className="w-4 h-4" />
-                      </button>
-                      <button
-                        onClick={nextStory}
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all"
-                        onTouchStart={handleTouchFeedback}
-                      >
-                        <ChevronRight className="w-4 h-4" />
-                      </button>
                     </div>
 
                     {/* Footer com CTA */}
@@ -393,25 +315,9 @@ export default function ResultPageOptimized() {
                       </Button>
                     </div>
                   </div>
-
-                  {/* Navegação por pontos */}
-                  <div className="flex justify-center gap-2 mt-4">
-                    {videoStories.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentStory(index)}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                          index === currentStory 
-                            ? 'bg-orange-400 scale-125' 
-                            : 'bg-gray-600 hover:bg-gray-500'
-                        }`}
-                        onTouchStart={handleTouchFeedback}
-                      />
-                    ))}
-                  </div>
                 </div>
               </div>
-              {/* 🔥 FIM DA SEÇÃO DE COMENTÁRIOS EM VÍDEO STORY */}
+              {/* 🔥 FIM DA SEÇÃO DE DEPOIMENTO EM VÍDEO STORY */}
 
               <p className="text-white text-lg font-semibold">
                 Ahora que conoces el método, es hora de <span className="text-orange-400">ponerlo en práctica</span>
@@ -800,17 +706,18 @@ export default function ResultPageOptimized() {
           padding-top: 55.94%; 
           border-radius: 12px;
         }
+
+        wistia-player[media-id='u24vsbymvw']:not(:defined) { 
+          background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/u24vsbymvw/swatch'); 
+          display: block; 
+          filter: blur(5px); 
+          padding-top: 177.78%; 
+        }
         
         wistia-player {
           border-radius: 12px !important;
           overflow: hidden;
           width: 100% !important;
-        }
-
-        /* Estilos específicos para stories */
-        .story-container wistia-player {
-          border-radius: 16px !important;
-          height: 100% !important;
         }
 
         @media (max-width: 768px) {
@@ -859,11 +766,6 @@ export default function ResultPageOptimized() {
           wistia-player[media-id='6fyiaz12pl']:not(:defined) {
             padding-top: 56.25% !important;
           }
-
-          /* Stories responsivos */
-          .story-container {
-            max-width: 350px !important;
-          }
         }
 
         /* Animações otimizadas para móvil */
@@ -872,88 +774,6 @@ export default function ResultPageOptimized() {
             animation-duration: 0.01ms !important;
             animation-iteration-count: 1 !important;
             transition-duration: 0.01ms !important;
-          }
-        }
-
-        /* Estilos específicos para stories em formato vertical */
-        .story-video-container {
-          aspect-ratio: 9/16;
-          position: relative;
-          overflow: hidden;
-          border-radius: 16px;
-        }
-
-        .story-video-container wistia-player {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100% !important;
-          height: 100% !important;
-          border-radius: 16px !important;
-        }
-
-        /* Indicadores de progresso dos stories */
-        .story-progress {
-          background: linear-gradient(90deg, #fb923c 0%, #fb923c var(--progress), #4b5563 var(--progress), #4b5563 100%);
-          transition: all 0.3s ease;
-        }
-
-        /* Overlay gradiente para melhor legibilidade */
-        .story-overlay {
-          background: linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0.3) 0%,
-            rgba(0, 0, 0, 0) 30%,
-            rgba(0, 0, 0, 0) 70%,
-            rgba(0, 0, 0, 0.8) 100%
-          );
-        }
-
-        /* Botões de navegação dos stories */
-        .story-nav-btn {
-          backdrop-filter: blur(8px);
-          transition: all 0.2s ease;
-        }
-
-        .story-nav-btn:hover {
-          backdrop-filter: blur(12px);
-          transform: scale(1.1);
-        }
-
-        /* Responsividade para tablets */
-        @media (min-width: 768px) and (max-width: 1024px) {
-          .story-container {
-            max-width: 400px;
-          }
-        }
-
-        /* Otimizações para telas grandes */
-        @media (min-width: 1024px) {
-          .story-container {
-            max-width: 450px;
-          }
-        }
-
-        /* Prevenção de scroll horizontal */
-        body {
-          overflow-x: hidden;
-        }
-
-        /* Smooth scrolling */
-        html {
-          scroll-behavior: smooth;
-        }
-
-        /* Melhor contraste para acessibilidade */
-        @media (prefers-contrast: high) {
-          .story-overlay {
-            background: linear-gradient(
-              180deg,
-              rgba(0, 0, 0, 0.8) 0%,
-              rgba(0, 0, 0, 0.2) 30%,
-              rgba(0, 0, 0, 0.2) 70%,
-              rgba(0, 0, 0, 0.9) 100%
-            );
           }
         }
       `}</style>
