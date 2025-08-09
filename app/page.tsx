@@ -244,7 +244,7 @@ export default function HomePage() {
             {/* LOGO CENTRALIZADA - IMAGEM WEBP OTIMIZADA */}
             <div className="logo-container">
               <Image
-                src="https://comprarplanseguro.shop/wp-content/uploads/2025/06/nova-imagem-fundo.webp"
+                src="https://comprarplanseguro.shop/wp-content/uploads/2025/08/nova-capa.webp"
                 alt="Logo Plan A"
                 width={200}
                 height={120}
@@ -317,7 +317,7 @@ export default function HomePage() {
         <div className="depoimento">
           <div className="avatar">
             <Image
-              src="https://comprarplanseguro.shop/wp-content/uploads/2025/08/nova-capa.webp"
+              src="https://comprarplanseguro.shop/wp-content/uploads/2025/06/prova-pv-inicial.webp"
               alt="Pablo Alvez"
               width={55}
               height={55}
