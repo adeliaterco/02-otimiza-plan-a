@@ -341,9 +341,9 @@ export default function ResultPageOptimized() {
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-2xl animate-pulse"></div>
                 <div className="relative z-10">
                   <script src="https://fast.wistia.com/player.js" async></script>
-                  <script src="https://fast.wistia.com/embed/u24vsbymvw.js" async type="module"></script>
+                  <script src="https://fast.wistia.com/embed/uu3199yjss.js" async type="module"></script>
                   <wistia-player 
-                    media-id="u24vsbymvw" 
+                    media-id="uu3199yjss" 
                     aspect="1.7877094972067038"
                   ></wistia-player>
                 </div>
@@ -766,8 +766,8 @@ export default function ResultPageOptimized() {
           max-width: 100%;
         }
 
-        wistia-player[media-id='u24vsbymvw']:not(:defined) { 
-          background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/u24vsbymvw/swatch'); 
+        wistia-player[media-id='uu3199yjss']:not(:defined) { 
+          background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/uu3199yjss/swatch'); 
           display: block; 
           filter: blur(5px); 
           padding-top: 55.94%; 
