@@ -203,16 +203,16 @@ export const quizSteps = [
   {
     id: 12,
     question: "¡ANÁLISIS COMPLETO DE TU CASO ESPECÍFICO!",
-    description: "Basándome en TUS respuestas exactas, tu caso tiene características excepcionales.",
+    description: "Basándome en TUS respuestas exactas, tu caso tiene características excepcionales que la mayoría no posee.",
     subtext: "He identificado 3 'CÓDIGOS DE RECONQUISTA' únicos en tu perfil que explican tu alto potencial de éxito.",
-    options: ["¡QUIERO VER MIS 3 CÓDIGOS ESPECÍFICOS!"],
+    options: ["¡QUIERO DESCUBRIR MIS 3 CÓDIGOS ESPECÍFICOS!"],
     elements: {
       personalizedSuccessRate: true, // Calculado dinámicamente entre 80-82%
       profileComplete: "98%",
-      personalizedCodes: {
-        temporal: "Protocolo de Nostalgia Acelerada",
-        emotional: "Disparadores de Arrepentimiento",
-        strategic: "Técnica del Contacto Magnético"
+      mysteryBuilder: {
+        codesFound: 3,
+        rarity: "Solo el 8% de los casos tienen estos 3 códigos simultáneamente",
+        teaser: "Uno de tus códigos es tan poderoso que funciona en menos de 72 horas..."
       },
       comparisonData: {
         general: "19%",
@@ -222,64 +222,84 @@ export const quizSteps = [
       specificTestimonial: {
         name: "Carlos M., 34 años",
         similarity: "89% similar al tuyo",
-        text: "Mis 3 códigos eran prácticamente idénticos a los tuyos. Mi tasa calculada era 80,7%. Resultado real: ella me escribió en el día 8 pidiendo vernos. Hoy llevamos 5 meses juntos de nuevo.",
+        text: "Cuando vi mis 3 códigos específicos, entendí por qué mi caso tenía tanto potencial. En el día 8 ella me escribió pidiendo vernos.",
         image: "https://comprarplanseguro.shop/wp-content/uploads/2025/06/prova-nova-espanha-face.png",
         verified: true
       },
       urgencyElements: {
         spotsRemaining: 23,
-        exclusiveAccess: "Solo personas con tu perfil específico (80%+ de éxito) verán esta estrategia hoy",
+        exclusiveAccess: "Solo personas con 3 códigos simultáneos verán la estrategia completa",
         scarcityMessage: "Acceso limitado para casos de alto potencial"
-      },
-      codePreview: [
-        "🔐 CÓDIGO #1: Tu tiempo de separación activa el...",
-        "🔐 CÓDIGO #2: Tu tipo de ruptura permite usar...",
-        "🔐 CÓDIGO #3: Tu situación actual habilita la..."
-      ]
+      }
     },
   },
   {
     id: 13,
-    question: "¡AQUÍ ESTÁN TUS 3 CÓDIGOS DE RECONQUISTA!",
-    description: "Basándome en tu análisis personalizado, estos son los códigos específicos que maximizan tu éxito:",
+    question: "¡TUS 3 CÓDIGOS HAN SIDO IDENTIFICADOS!",
+    description: "Basándome en tu análisis personalizado, estos son los tipos de códigos que maximizan tu éxito:",
     subtext: "Con tu tasa de éxito personalizada, estos códigos te colocan en el TOP 8% de casos más prometedores.",
-    options: ["¡QUIERO ACCESO COMPLETO AL PLAN A PERSONALIZADO!"],
-    note: "⚠️ IMPORTANTE: Estos códigos son específicos para tu situación. La estrategia completa está disponible en el siguiente paso.",
+    options: ["¡QUIERO VER LA ESTRATEGIA COMPLETA CON MIS CÓDIGOS!"],
+    note: "⚠️ IMPORTANTE: La aplicación exacta de estos códigos y el cronograma específico están en tu PLAN A personalizado.",
     elements: {
-      revealedCodes: true,
+      codePreview: true,
       personalizedStrategy: true,
       profileComplete: "99%",
-      mysteryReveal: false, // Ya revelamos na etapa anterior
-      successPattern: "calculated", // Usar o valor calculado
+      revealedCodes: {
+        code1: {
+          category: "CÓDIGO TEMPORAL",
+          hint: "Basado en tu tiempo de separación específico",
+          power: "Activa la nostalgia en el momento exacto"
+        },
+        code2: {
+          category: "CÓDIGO EMOCIONAL", 
+          hint: "Relacionado con cómo terminaron",
+          power: "Genera arrepentimiento genuino"
+        },
+        code3: {
+          category: "CÓDIGO ESTRATÉGICO",
+          hint: "Adaptado a tu situación actual con tu ex",
+          power: "Crea el contacto magnético irresistible"
+        }
+      },
+      successPattern: "calculated",
       offerPreview: {
         product: "PLAN A COMPLETO PERSONALIZADO",
-        includes: "Estrategia + 3 Códigos Específicos + Bonos",
+        includes: "Estrategia + 3 Códigos Específicos + Cronograma + Scripts",
         urgency: "Acceso limitado por perfil de alto potencial"
       }
     },
   },
   {
     id: 14,
-    question: "¡AQUÍ ESTÁ TU PLAN A PERSONALIZADO COMPLETO!",
-    description: "Tu estrategia específica basada en tus 3 códigos de reconquista y tu tasa de éxito personalizada.",
+    question: "¡ACCESO COMPLETO A TU PLAN A PERSONALIZADO!",
+    description: "Aquí tienes tu estrategia específica con los 3 códigos exactos, cronograma detallado y scripts personalizados.",
     subtext: "Con tu perfil de alto potencial, tienes acceso prioritario a la metodología completa que ha funcionado para casos similares al tuyo.",
-    options: ["¡QUIERO ACCESO INMEDIATO AL PLAN A!"],
-    note: "🎯 Tu estrategia personalizada incluye los pasos exactos, cronograma específico y scripts adaptados a tu situación única.",
+    options: ["¡QUIERO ACCESO INMEDIATO AL PLAN A COMPLETO!"],
+    note: "🎯 INCLUYE: Los 3 códigos revelados + Cronograma día a día + Scripts exactos + Bonos de $84",
     elements: {
       finalOffer: true,
       profileComplete: "100%",
-      strategyPreparation: false, // Ya está preparada
-      anticipationBuilder: false, // Ya construimos a expectativa
-      personalizedPlan: {
-        successRate: "calculated",
-        codes: "revealed",
-        timeline: "21 días adaptado a tu caso",
-        guarantee: "30 días de garantía"
+      fullReveal: {
+        codes: {
+          temporal: "calculated", // Aquí SIM você revela os códigos específicos
+          emotional: "calculated",
+          strategic: "calculated"
+        },
+        timeline: "21 días con pasos específicos para tu caso",
+        scripts: "Frases exactas adaptadas a tu situación",
+        guarantee: "30 días de garantía total"
       },
       finalUrgency: {
-        timer: "2 horas restantes",
-        spots: "12 accesos disponibles",
+        timer: "2 horas restantes para acceso prioritario",
+        spots: "12 accesos disponibles hoy",
         exclusivity: "Solo para perfiles de 80%+ de éxito"
+      },
+      valueStack: {
+        planA: 197,
+        bonus1: 47,
+        bonus2: 37,
+        total: 281,
+        offer: 67
       }
     },
   },
