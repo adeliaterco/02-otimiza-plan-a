@@ -490,8 +490,172 @@ export default function QuizStep() {
                 </div>
               )}
 
-              {/* Cálculo de compatibilidad para el paso 11 */}
-              {currentStep?.elements?.compatibilityCalc && (
+              {/* NOVA SEÇÃO: Cálculo de compatibilidade personalizada para el paso 11 */}
+              {currentStep?.elements?.customCompatibility && (
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", duration: 0.8 }}
+                  className="mb-6"
+                >
+                  <div className="bg-gradient-to-r from-green-900/50 to-blue-900/50 border-2 border-green-500/50 rounded-lg p-6 text-center">
+                    <div className="text-5xl font-bold text-green-400 mb-2">81,2%</div>
+                    <p className="text-white text-lg font-semibold mb-2">{currentStep.elements.customCompatibility}</p>
+                    {currentStep.elements.advantageMessage && (
+                      <p className="text-green-300 font-medium">{currentStep.elements.advantageMessage}</p>
+                    )}
+                  </div>
+                </motion.div>
+              )}
+
+              {/* NOVA SEÇÃO: Análise personalizada para etapa 12 */}
+              {currentStep?.elements?.showPersonalizedAnalysis && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="mb-8 space-y-6"
+                >
+                  {/* Taxa de sucesso destacada */}
+                  <div className="text-center mb-6">
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: "spring", duration: 0.8 }}
+                      className="text-6xl font-bold text-green-400 mb-2"
+                    >
+                      {currentStep.elements.userSuccessRate}
+                    </motion.div>
+                    <p className="text-white text-lg">de probabilidad de éxito en TU caso específico</p>
+                  </div>
+
+                  {/* Códigos revelados */}
+                  <div className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded-lg p-6 border border-blue-500/50">
+                    <h3 className="text-xl font-bold text-blue-400 mb-4 text-center">
+                      🔍 He identificado 3 "CÓDIGOS DE RECONQUISTA" únicos en tu perfil:
+                    </h3>
+                    <div className="space-y-3">
+                      {currentStep.elements.codes?.map((code, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.2 }}
+                          className="bg-gray-800/50 rounded-lg p-4 border-l-4 border-blue-500"
+                        >
+                          <p className="text-white">{code}</p>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Depoimento específico */}
+                  {currentStep.elements.specificTestimonial && (
+                    <div className="bg-gray-800/30 rounded-lg p-6 border border-gray-600">
+                      <h4 className="text-lg font-bold text-white mb-4">👤 Caso Verificado - Perfil Similar al Tuyo:</h4>
+                      <div className="flex items-start gap-4">
+                        <img 
+                          src={currentStep.elements.testimonialImage} 
+                          alt="Carlos M." 
+                          className="w-16 h-16 rounded-full object-cover border-2 border-blue-500"
+                        />
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-2">
+                            <h5 className="text-white font-semibold">{currentStep.elements.specificTestimonial.name}</h5>
+                            <span className="bg-blue-600 text-white px-2 py-1 rounded text-xs font-bold">
+                              {currentStep.elements.specificTestimonial.similarity}
+                            </span>
+                          </div>
+                          <p className="text-gray-300 text-sm leading-relaxed">
+                            "{currentStep.elements.specificTestimonial.text}"
+                          </p>
+                          <span className="inline-block mt-2 text-green-400 text-xs font-semibold">✅ Resultado verificado</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Urgência */}
+                  <div className="bg-orange-900/30 border border-orange-500/50 rounded-lg p-4 text-center">
+                    <p className="text-orange-200">{currentStep.elements.urgencyMessage}</p>
+                    <div className="mt-2">
+                      <span className="bg-orange-600 text-white px-3 py-1 rounded font-bold text-sm">
+                        Spots restantes: {currentStep.elements.spotsRemaining}
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* NOVA SEÇÃO: Códigos detalhados para etapa 13 */}
+              {currentStep?.elements?.detailedCodes && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="mb-8 space-y-4"
+                >
+                  {currentStep.elements.detailedCodes.map((code, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.3 }}
+                      className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-lg p-6 border-l-4 border-orange-500"
+                    >
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="bg-orange-600 text-white px-3 py-1 rounded-full font-bold text-sm">
+                          {code.number}
+                        </span>
+                        <h4 className="text-orange-400 font-bold text-lg">{code.title}</h4>
+                      </div>
+                      <p className="text-gray-300 leading-relaxed">{code.description}</p>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              )}
+
+              {/* NOVA SEÇÃO: Oferta final para etapa 14 */}
+              {currentStep?.elements?.finalBenefits && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="mb-8"
+                >
+                  <div className="bg-gradient-to-br from-green-900/30 to-blue-900/30 rounded-lg p-6 border-2 border-green-500/50">
+                    <h3 className="text-2xl font-bold text-green-400 mb-6 text-center">
+                      🎯 TU PLAN A PERSONALIZADO INCLUYE:
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {currentStep.elements.finalBenefits.map((benefit, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="flex items-center gap-2 text-white"
+                        >
+                          <span className="text-green-400 font-bold">{benefit}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                    
+                    {currentStep.elements.finalUrgency && (
+                      <div className="mt-6 text-center">
+                        <div className="bg-red-900/50 border border-red-500 rounded-lg p-4">
+                          <p className="text-red-300 font-bold mb-2">⏰ {currentStep.elements.finalUrgency.timer}</p>
+                          <p className="text-orange-300">{currentStep.elements.finalUrgency.spots}</p>
+                          <p className="text-yellow-300 text-sm">{currentStep.elements.finalUrgency.exclusivity}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Cálculo de compatibilidade para el paso 11 - VERSÃO ANTIGA (FALLBACK) */}
+              {currentStep?.elements?.compatibilityCalc && !currentStep?.elements?.customCompatibility && (
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: "91%" }}
