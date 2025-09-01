@@ -202,107 +202,23 @@ export const quizSteps = [
   },
   {
     id: 12,
-    question: "¡ANÁLISIS COMPLETO DE TU CASO ESPECÍFICO!",
-    description: "Basándome en TUS respuestas exactas, tu caso tiene características excepcionales que la mayoría no posee.",
-    subtext: "He identificado 3 'CÓDIGOS DE RECONQUISTA' únicos en tu perfil que explican tu alto potencial de éxito.",
-    options: ["¡QUIERO DESCUBRIR MIS 3 CÓDIGOS ESPECÍFICOS!"],
+    question: "ÚLTIMA PREGUNTA CRUCIAL: ¿Estás dispuesto/a a seguir un plan paso a paso durante 21 días para recuperar a tu ex?",
+    description: "Esta información es fundamental para personalizar tu estrategia específica y determinar si eres candidato/a ideal para el PLAN A.",
+    subtext: "⚠️ IMPORTANTE: Solo personas 100% comprometidas obtienen los mejores resultados.",
+    options: [
+      "🎯 SÍ, estoy 100% comprometido/a y haré todo lo necesario",
+      "🤔 SÍ, pero tengo algunas dudas sobre mi capacidad",
+      "😐 Tal vez, depende de qué tan difícil sea",
+      "❌ No estoy seguro/a si podré mantener la disciplina"
+    ],
+    note: "Tu nivel de compromiso determinará qué versión del plan recibirás. Las personas más comprometidas acceden a estrategias más avanzadas.",
     elements: {
-      personalizedSuccessRate: true, // Calculado dinámicamente entre 80-82%
-      profileComplete: "98%",
-      mysteryBuilder: {
-        codesFound: 3,
-        rarity: "Solo el 8% de los casos tienen estos 3 códigos simultáneamente",
-        teaser: "Uno de tus códigos es tan poderoso que funciona en menos de 72 horas..."
-      },
-      comparisonData: {
-        general: "19%",
-        basic: "47%",
-        userProfile: "calculated" // Será calculado dinamicamente
-      },
-      specificTestimonial: {
-        name: "Carlos M., 34 años",
-        similarity: "89% similar al tuyo",
-        text: "Cuando vi mis 3 códigos específicos, entendí por qué mi caso tenía tanto potencial. En el día 8 ella me escribió pidiendo vernos.",
-        image: "https://comprarplanseguro.shop/wp-content/uploads/2025/06/prova-nova-espanha-face.png",
-        verified: true
-      },
-      urgencyElements: {
-        spotsRemaining: 23,
-        exclusiveAccess: "Solo personas con 3 códigos simultáneos verán la estrategia completa",
-        scarcityMessage: "Acceso limitado para casos de alto potencial"
-      }
-    },
-  },
-  {
-    id: 13,
-    question: "¡TUS 3 CÓDIGOS HAN SIDO IDENTIFICADOS!",
-    description: "Basándome en tu análisis personalizado, estos son los tipos de códigos que maximizan tu éxito:",
-    subtext: "Con tu tasa de éxito personalizada, estos códigos te colocan en el TOP 8% de casos más prometedores.",
-    options: ["¡QUIERO VER LA ESTRATEGIA COMPLETA CON MIS CÓDIGOS!"],
-    note: "⚠️ IMPORTANTE: La aplicación exacta de estos códigos y el cronograma específico están en tu PLAN A personalizado.",
-    elements: {
-      codePreview: true,
-      personalizedStrategy: true,
-      profileComplete: "99%",
-      revealedCodes: {
-        code1: {
-          category: "CÓDIGO TEMPORAL",
-          hint: "Basado en tu tiempo de separación específico",
-          power: "Activa la nostalgia en el momento exacto"
-        },
-        code2: {
-          category: "CÓDIGO EMOCIONAL", 
-          hint: "Relacionado con cómo terminaron",
-          power: "Genera arrepentimiento genuino"
-        },
-        code3: {
-          category: "CÓDIGO ESTRATÉGICO",
-          hint: "Adaptado a tu situación actual con tu ex",
-          power: "Crea el contacto magnético irresistible"
-        }
-      },
-      successPattern: "calculated",
-      offerPreview: {
-        product: "PLAN A COMPLETO PERSONALIZADO",
-        includes: "Estrategia + 3 Códigos Específicos + Cronograma + Scripts",
-        urgency: "Acceso limitado por perfil de alto potencial"
-      }
-    },
-  },
-  {
-    id: 14,
-    question: "¡ACCESO COMPLETO A TU PLAN A PERSONALIZADO!",
-    description: "Aquí tienes tu estrategia específica con los 3 códigos exactos, cronograma detallado y scripts personalizados.",
-    subtext: "Con tu perfil de alto potencial, tienes acceso prioritario a la metodología completa que ha funcionado para casos similares al tuyo.",
-    options: ["¡QUIERO ACCESO INMEDIATO AL PLAN A COMPLETO!"],
-    note: "🎯 INCLUYE: Los 3 códigos revelados + Cronograma día a día + Scripts exactos + Bonos de $84",
-    elements: {
-      finalOffer: true,
+      finalCommitment: true,
       profileComplete: "100%",
-      fullReveal: {
-        codes: {
-          temporal: "calculated", // Aquí SIM você revela os códigos específicos
-          emotional: "calculated",
-          strategic: "calculated"
-        },
-        timeline: "21 días con pasos específicos para tu caso",
-        scripts: "Frases exactas adaptadas a tu situación",
-        guarantee: "30 días de garantía total"
-      },
-      finalUrgency: {
-        timer: "2 horas restantes para acceso prioritario",
-        spots: "12 accesos disponibles hoy",
-        exclusivity: "Solo para perfiles de 80%+ de éxito"
-      },
-      valueStack: {
-        planA: 197,
-        bonus1: 47,
-        bonus2: 37,
-        total: 281,
-        offer: 67
-      }
+      commitmentMeter: true,
+      redirectToResults: true
     },
-  },
+  }
 ]
 
 export const bonuses = [
@@ -327,47 +243,35 @@ export const testimonials = [
     name: "Carlos M., 34 años",
     text: "¡Volvió a responderme al 3er día y me propuso vernos al 6º día!",
     rating: 5,
-    similarity: "89%",
-    successRate: "80,7%",
-    verified: true
   },
   {
-    name: "Rafael, 32 años", 
+    name: "Rafael, 32 años",
     text: "Estaba perdido después de la ruptura. El Plan A me dio dirección y confianza. ¡Hoy estamos más unidos que nunca!",
     rating: 5,
-    similarity: "76%",
-    successRate: "81,3%",
-    verified: true
   },
   {
     name: "André, 28 años",
     text: "En solo 2 semanas siguiendo el Plan A, logré reconquistar a mi ex. ¡Los guiones funcionaron perfectamente!",
     rating: 5,
-    similarity: "82%", 
-    successRate: "79,8%",
-    verified: true
   },
   {
     name: "Marcelo, 41 años",
     text: "Después de 6 meses separados, pensé que ya no tenía oportunidad. En el día 12 del Plan A me llamó llorando queriendo volver.",
     rating: 5,
-    similarity: "71%",
-    successRate: "80,9%", 
-    verified: true
   },
 ]
 
 export const socialProofMessages = [
   "¡Estás entre el 17% más decidido a reconquistar!",
-  "¡Tu perfil muestra compatibilidad excepcional!",
-  "¡Bonificación liberada por perfil de alto potencial!",
+  "¡Tu perfil muestra compatibilidad!",
+  "¡Bonificación liberada por desbloqueo!",
   "¡Has desbloqueado los 2 bonos - valor total de $84!",
   "El 87% de las personas en tu situación lograron resultados en menos de 14 días",
   "Estás más comprometido que el 73% de las personas que hicieron esta prueba",
-  "¡Tu tasa de éxito supera el promedio en +60 puntos!",
-  "¡Perfil de alto potencial detectado!",
-  "¡Acceso prioritario activado por códigos únicos!",
-  "¡Tu caso está en el TOP 8% más prometedor!",
+  "-",
+  "-",
+  "-",
+  "-",
 ]
 
 // Función utilitaria para personalizar textos basados en el género
@@ -384,68 +288,4 @@ export function getPersonalizedContent(content: any, gender: string) {
   }
 
   return content
-}
-
-// Función para calcular tasa de éxito personalizada (80-82%)
-export function calculatePersonalizedSuccessRate(userAnswers) {
-  let baseRate = 76; // Base para alcanzar 80-82%
-  
-  // Ajustes baseados no tempo de separação
-  if (userAnswers.timeApart === "Menos de una semana") baseRate += 4;
-  if (userAnswers.timeApart === "Hace 1 mes") baseRate += 3;
-  if (userAnswers.timeApart === "De 2 a 6 meses") baseRate += 2;
-  if (userAnswers.timeApart === "Más de 6 meses") baseRate += 1;
-  
-  // Ajustes baseados na situação atual
-  if (userAnswers.currentSituation && userAnswers.currentSituation.includes("amigos")) baseRate += 3;
-  if (userAnswers.currentSituation && userAnswers.currentSituation.includes("encuentros íntimos")) baseRate += 4;
-  if (userAnswers.currentSituation && userAnswers.currentSituation.includes("charlamos")) baseRate += 2;
-  
-  // Ajustes baseados no comprometimento
-  if (userAnswers.commitment === "4 - Lo quiero muchísimo") baseRate += 2;
-  if (userAnswers.commitment === "3 - Lo quiero bastante") baseRate += 1;
-  
-  // Garantir faixa 80-82%
-  return Math.min(Math.max(baseRate, 80), 82);
-}
-
-// Função para gerar códigos personalizados
-export function generatePersonalizedCodes(userAnswers) {
-  const temporalCodes = {
-    "Menos de una semana": "Protocolo de Nostalgia Acelerada",
-    "Hace 1 mes": "Técnica de Reconexión Gradual",
-    "De 2 a 6 meses": "Estrategia de Redescubrimiento",
-    "Más de 6 meses": "Método de Reactivación Profunda"
-  };
-  
-  const emotionalCodes = {
-    "Ella terminó conmigo": "Disparadores de Arrepentimiento",
-    "Yo terminé con ella": "Activadores de Nostalgia",
-    "Decidimos terminar de mutuo acuerdo": "Técnicas de Reconexión Mutua"
-  };
-  
-  const strategicCodes = {
-    "amigos": "Técnica del Contacto Magnético",
-    "charlamos": "Método de Escalada Emocional", 
-    "encuentros íntimos": "Protocolo de Reconquista Acelerada",
-    "contacto cero": "Estrategia de Reaparición Impactante"
-  };
-  
-  return {
-    temporal: temporalCodes[userAnswers.timeApart] || "Protocolo Personalizado",
-    emotional: emotionalCodes[userAnswers.breakupType] || "Disparadores Específicos",
-    strategic: getStrategicCode(userAnswers.currentSituation, strategicCodes)
-  };
-}
-
-function getStrategicCode(currentSituation, strategicCodes) {
-  if (!currentSituation) return "Técnica Personalizada";
-  
-  for (const [key, value] of Object.entries(strategicCodes)) {
-    if (currentSituation.toLowerCase().includes(key)) {
-      return value;
-    }
-  }
-  
-  return "Técnica del Contacto Estratégico";
 }
