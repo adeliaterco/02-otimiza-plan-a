@@ -20,6 +20,8 @@ import {
   MessageCircle,
   Smile,
   Star,
+  CheckCircle,
+  Trophy,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -53,7 +55,8 @@ export default function QuizStep() {
   const [userGender, setUserGender] = useState<string>("")
 
   const currentStep = quizSteps[step - 1]
-  const progress = (step / 14) * 100
+  // ✅ ATUALIZADO: Agora são 12 etapas no total
+  const progress = (step / 12) * 100
 
   useEffect(() => {
     // Cargar datos guardados
@@ -193,13 +196,13 @@ export default function QuizStep() {
       return
     }
 
-    // Navegar al siguiente paso con UTMs
-    if (step < 14) {
+    // ✅ ATUALIZADO: Navegação agora usa 12 como limite
+    if (step < 12) {
       router.push(`/quiz/${step + 1}${utmString}`)
     } else {
-      // Registra evento de finalización del cuestionario
+      // ✅ ATUALIZADO: Evento de conclusão agora registra 12 etapas
       enviarEvento('concluiu_quiz', {
-        total_etapas_completadas: 14,
+        total_etapas_completadas: 12,
         total_bonus_desbloqueados: unlockedBonuses.length
       });
       
@@ -227,7 +230,8 @@ export default function QuizStep() {
       utmString = '?' + utmParams.toString();
     }
     
-    if (step < 14) {
+    // ✅ ATUALIZADO: Navegação agora usa 12 como limite
+    if (step < 12) {
       router.push(`/quiz/${step + 1}${utmString}`)
     } else {
       router.push(`/resultado${utmString}`)
@@ -333,8 +337,9 @@ export default function QuizStep() {
           </div>
 
           <div className="flex justify-between items-center">
+            {/* ✅ ATUALIZADO: Texto do progresso agora mostra 12 etapas */}
             <p className="text-white text-sm">
-              Etapa {step} de 14 • {Math.round(progress)}% completado
+              Etapa {step} de 12 • {Math.round(progress)}% completado
             </p>
             {currentStep?.elements?.profileComplete && (
               <p className="text-green-400 text-sm font-semibold">
@@ -344,8 +349,8 @@ export default function QuizStep() {
           </div>
         </div>
 
-        {/* Imagen de Testimonio - Aparece en la etapa 7 o 12 */}
-        {(step === 7 || step === 12) && currentStep?.elements?.testimonialImage && (
+        {/* Imagen de Testimonio - Aparece en la etapa 7 */}
+        {step === 7 && currentStep?.elements?.testimonialImage && (
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
             <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-blue-500/50 shadow-lg">
               <CardContent className="p-6 text-center">
@@ -452,15 +457,56 @@ export default function QuizStep() {
                 </motion.div>
               )}
 
-              {/* Visualización de número grande para el paso 12 */}
-              {currentStep?.elements?.bigNumber && (
+              {/* ✅ NOVA LÓGICA: Renderização especial para finalReveal (nova etapa 12) */}
+              {currentStep?.elements?.finalReveal && (
                 <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: "spring", duration: 0.8 }}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8 }}
                   className="text-center mb-8"
                 >
-                  <div className="text-8xl font-bold text-green-400 mb-4">{currentStep.elements.bigNumber}</div>
+                  {/* Ícone de sucesso animado */}
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", duration: 1, delay: 0.3 }}
+                    className="mb-6"
+                  >
+                    <div className="w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                      <CheckCircle className="w-12 h-12 text-white" />
+                    </div>
+                  </motion.div>
+
+                  {/* Indicador de progresso completo */}
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 2, delay: 0.5 }}
+                    className="mb-6"
+                  >
+                    <div className="bg-green-900/50 border border-green-500 rounded-lg p-4 text-center">
+                      <div className="flex items-center justify-center gap-2 mb-2">
+                        <Trophy className="w-6 h-6 text-green-400" />
+                        <span className="text-2xl font-bold text-green-400">
+                          {currentStep.elements.profileComplete}
+                        </span>
+                      </div>
+                      <p className="text-green-300 font-medium">Análisis Completo</p>
+                    </div>
+                  </motion.div>
+
+                  {/* Indicador de plan listo */}
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 1 }}
+                    className="bg-blue-900/50 border border-blue-500 rounded-lg p-4 mb-6"
+                  >
+                    <div className="flex items-center justify-center gap-2">
+                      <Target className="w-6 h-6 text-blue-400" />
+                      <span className="text-blue-300 font-semibold">Plan Personalizado Generado</span>
+                    </div>
+                  </motion.div>
                 </motion.div>
               )}
 
@@ -490,172 +536,8 @@ export default function QuizStep() {
                 </div>
               )}
 
-              {/* NOVA SEÇÃO: Cálculo de compatibilidade personalizada para el paso 11 */}
-              {currentStep?.elements?.customCompatibility && (
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: "spring", duration: 0.8 }}
-                  className="mb-6"
-                >
-                  <div className="bg-gradient-to-r from-green-900/50 to-blue-900/50 border-2 border-green-500/50 rounded-lg p-6 text-center">
-                    <div className="text-5xl font-bold text-green-400 mb-2">81,2%</div>
-                    <p className="text-white text-lg font-semibold mb-2">{currentStep.elements.customCompatibility}</p>
-                    {currentStep.elements.advantageMessage && (
-                      <p className="text-green-300 font-medium">{currentStep.elements.advantageMessage}</p>
-                    )}
-                  </div>
-                </motion.div>
-              )}
-
-              {/* NOVA SEÇÃO: Análise personalizada para etapa 12 */}
-              {currentStep?.elements?.showPersonalizedAnalysis && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="mb-8 space-y-6"
-                >
-                  {/* Taxa de sucesso destacada */}
-                  <div className="text-center mb-6">
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: "spring", duration: 0.8 }}
-                      className="text-6xl font-bold text-green-400 mb-2"
-                    >
-                      {currentStep.elements.userSuccessRate}
-                    </motion.div>
-                    <p className="text-white text-lg">de probabilidad de éxito en TU caso específico</p>
-                  </div>
-
-                  {/* Códigos revelados */}
-                  <div className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded-lg p-6 border border-blue-500/50">
-                    <h3 className="text-xl font-bold text-blue-400 mb-4 text-center">
-                      🔍 He identificado 3 "CÓDIGOS DE RECONQUISTA" únicos en tu perfil:
-                    </h3>
-                    <div className="space-y-3">
-                      {currentStep.elements.codes?.map((code, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.2 }}
-                          className="bg-gray-800/50 rounded-lg p-4 border-l-4 border-blue-500"
-                        >
-                          <p className="text-white">{code}</p>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Depoimento específico */}
-                  {currentStep.elements.specificTestimonial && (
-                    <div className="bg-gray-800/30 rounded-lg p-6 border border-gray-600">
-                      <h4 className="text-lg font-bold text-white mb-4">👤 Caso Verificado - Perfil Similar al Tuyo:</h4>
-                      <div className="flex items-start gap-4">
-                        <img 
-                          src={currentStep.elements.testimonialImage} 
-                          alt="Carlos M." 
-                          className="w-16 h-16 rounded-full object-cover border-2 border-blue-500"
-                        />
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <h5 className="text-white font-semibold">{currentStep.elements.specificTestimonial.name}</h5>
-                            <span className="bg-blue-600 text-white px-2 py-1 rounded text-xs font-bold">
-                              {currentStep.elements.specificTestimonial.similarity}
-                            </span>
-                          </div>
-                          <p className="text-gray-300 text-sm leading-relaxed">
-                            "{currentStep.elements.specificTestimonial.text}"
-                          </p>
-                          <span className="inline-block mt-2 text-green-400 text-xs font-semibold">✅ Resultado verificado</span>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Urgência */}
-                  <div className="bg-orange-900/30 border border-orange-500/50 rounded-lg p-4 text-center">
-                    <p className="text-orange-200">{currentStep.elements.urgencyMessage}</p>
-                    <div className="mt-2">
-                      <span className="bg-orange-600 text-white px-3 py-1 rounded font-bold text-sm">
-                        Spots restantes: {currentStep.elements.spotsRemaining}
-                      </span>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* NOVA SEÇÃO: Códigos detalhados para etapa 13 */}
-              {currentStep?.elements?.detailedCodes && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="mb-8 space-y-4"
-                >
-                  {currentStep.elements.detailedCodes.map((code, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.3 }}
-                      className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-lg p-6 border-l-4 border-orange-500"
-                    >
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="bg-orange-600 text-white px-3 py-1 rounded-full font-bold text-sm">
-                          {code.number}
-                        </span>
-                        <h4 className="text-orange-400 font-bold text-lg">{code.title}</h4>
-                      </div>
-                      <p className="text-gray-300 leading-relaxed">{code.description}</p>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              )}
-
-              {/* NOVA SEÇÃO: Oferta final para etapa 14 */}
-              {currentStep?.elements?.finalBenefits && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="mb-8"
-                >
-                  <div className="bg-gradient-to-br from-green-900/30 to-blue-900/30 rounded-lg p-6 border-2 border-green-500/50">
-                    <h3 className="text-2xl font-bold text-green-400 mb-6 text-center">
-                      🎯 TU PLAN A PERSONALIZADO INCLUYE:
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {currentStep.elements.finalBenefits.map((benefit, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.1 }}
-                          className="flex items-center gap-2 text-white"
-                        >
-                          <span className="text-green-400 font-bold">{benefit}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-                    
-                    {currentStep.elements.finalUrgency && (
-                      <div className="mt-6 text-center">
-                        <div className="bg-red-900/50 border border-red-500 rounded-lg p-4">
-                          <p className="text-red-300 font-bold mb-2">⏰ {currentStep.elements.finalUrgency.timer}</p>
-                          <p className="text-orange-300">{currentStep.elements.finalUrgency.spots}</p>
-                          <p className="text-yellow-300 text-sm">{currentStep.elements.finalUrgency.exclusivity}</p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Cálculo de compatibilidade para el paso 11 - VERSÃO ANTIGA (FALLBACK) */}
-              {currentStep?.elements?.compatibilityCalc && !currentStep?.elements?.customCompatibility && (
+              {/* Cálculo de compatibilidad para el paso 11 */}
+              {currentStep?.elements?.compatibilityCalc && (
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: "91%" }}
@@ -852,13 +734,13 @@ export default function QuizStep() {
                       animate={{ opacity: 1, y: 0 }}
                       className="mt-8 text-center"
                     >
-                      {/* Botón con texto reducido */}
+                      {/* ✅ ATUALIZADO: Botão agora usa 12 como referência para resultado */}
                       <Button
                         onClick={handleNext}
                         size="lg"
                         className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold py-4 px-6 rounded-full shadow-lg max-w-full"
                       >
-                        {step === 14 ? "Ver Resultado" : "Siguiente Pregunta"}
+                        {step === 12 ? "Ver Resultado" : "Siguiente Pregunta"}
                         <ArrowRight className="w-5 h-5 ml-2" />
                       </Button>
                     </motion.div>
