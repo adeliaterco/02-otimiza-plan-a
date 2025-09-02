@@ -103,7 +103,7 @@ export const quizSteps = [
         "🧐 Estoy aplicando contacto cero",
         "😢 Ella me ignora completamente",
         "❌ Me ha bloqueado en todas las redes sociales",
-        "🤝 Hablamos solo de cosas necesarias",
+        "�� Hablamos solo de cosas necesarias",
         "🤔 Charlamos de vez en cuando",
         "😌 Seguimos siendo amigos",
         "🔥 Hemos tenido encuentros íntimos después de la ruptura",
@@ -200,23 +200,16 @@ export const quizSteps = [
       compatibilityCalc: "90,5%",
     },
   },
+  // ✅ NOVA ETAPA 12 - Ponte para Resultados
   {
     id: 12,
-    question: "ÚLTIMA PREGUNTA CRUCIAL: ¿Estás dispuesto/a a seguir un plan paso a paso durante 21 días para recuperar a tu ex?",
-    description: "Esta información es fundamental para personalizar tu estrategia específica y determinar si eres candidato/a ideal para el PLAN A.",
-    subtext: "⚠️ IMPORTANTE: Solo personas 100% comprometidas obtienen los mejores resultados.",
-    options: [
-      "🎯 SÍ, estoy 100% comprometido/a y haré todo lo necesario",
-      "🤔 SÍ, pero tengo algunas dudas sobre mi capacidad",
-      "😐 Tal vez, depende de qué tan difícil sea",
-      "❌ No estoy seguro/a si podré mantener la disciplina"
-    ],
-    note: "Tu nivel de compromiso determinará qué versión del plan recibirás. Las personas más comprometidas acceden a estrategias más avanzadas.",
+    question: "¡TU PLAN DE ACCIÓN PERSONALIZADO ESTÁ LISTO!",
+    description: "Basado en tus respuestas, he creado la estrategia exacta para que recuperes a tu amor.",
+    options: ["¡QUIERO VER MI PLAN AHORA!"],
+    note: "Prepárate para descubrir los pasos que te llevarán al éxito.",
     elements: {
-      finalCommitment: true,
+      finalReveal: true,
       profileComplete: "100%",
-      commitmentMeter: true,
-      redirectToResults: true
     },
   }
 ]
