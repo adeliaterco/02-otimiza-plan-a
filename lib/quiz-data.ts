@@ -56,7 +56,7 @@ export const quizSteps = [
     elements: {
       analysisText: "Calculando tasa de éxito para tu caso...",
       successRate: "¡Tu caso tiene características prometedoras!",
-      // 🔥 TESTEMUNHO ADICIONADO - STEP 4
+      // 🔥 PRIMEIRO TESTEMUNHO - POSICIONAMENTO ESTRATÉGICO
       testimonialDisplay: true,
       testimonialName: "Carlos M.",
       testimonialText: "¡Volvió a responderme al 3er día y me propuso vernos al 6º día!",
@@ -94,11 +94,6 @@ export const quizSteps = [
     elements: {
       profileAnalysis: "Personalizando tu estrategia emocional...",
       profileComplete: "46%",
-      // 🔥 TESTEMUNHO ADICIONADO - STEP 6
-      testimonialDisplay: true,
-      testimonialName: "Rafael S.",
-      testimonialText: "Estaba perdido después de la ruptura. El Plan A me dio dirección y confianza. ¡Hoy estamos más unidos que nunca!",
-      testimonialImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/Persona-1.webp",
     },
   },
   {
@@ -130,11 +125,7 @@ export const quizSteps = [
     },
     elements: {
       profileComplete: "62%",
-      // 🔥 TESTEMUNHO ADICIONADO - STEP 7
-      testimonialDisplay: true,
-      testimonialName: "André M.",
-      testimonialText: "En solo 2 semanas siguiendo el Plan A, logré reconquistar a mi ex. ¡Los guiones funcionaron perfectamente!",
-      testimonialImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/Persona-1.webp",
+      testimonialImage: "",
     },
   },
   {
@@ -168,10 +159,10 @@ export const quizSteps = [
     },
     elements: {
       profileComplete: "77%",
-      // 🔥 TESTEMUNHO ADICIONADO - STEP 8
+      // 🔥 SEGUNDO TESTEMUNHO - PAUSA ESTRATÉGICA (4 steps depois)
       testimonialDisplay: true,
-      testimonialName: "Marcelo R.",
-      testimonialText: "Después de 6 meses separados, pensé que ya no tenía oportunidad. En el día 12 del Plan A me llamó llorando queriendo volver.",
+      testimonialName: "Rafael S.",
+      testimonialText: "Estaba perdido después de la ruptura. El Plan A me dio dirección y confianza. ¡Hoy estamos más unidos que nunca!",
       testimonialImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/Persona-1.webp",
     },
   },
@@ -189,11 +180,6 @@ export const quizSteps = [
     elements: {
       thermometer: true,
       profileComplete: "85%",
-      // 🔥 TESTEMUNHO ADICIONADO - STEP 9
-      testimonialDisplay: true,
-      testimonialName: "Diego L.",
-      testimonialText: "Seleccioné nivel 4 y en 18 días estábamos juntos otra vez. El método realmente funciona cuando te comprometes al 100%.",
-      testimonialImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/Persona-1.webp",
     },
   },
   {
@@ -204,7 +190,7 @@ export const quizSteps = [
     autoAdvance: true,
     elements: {
       expertPhoto: true,
-      // 🔥 IMAGEM DO EXPERT CORRIGIDA
+      // 🔥 IMAGEM DO EXPERT CORRIGIDA (SEM DATA FUTURA)
       expertImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/expert-professional.jpg",
       autoMessage: "Basándome en 7 años de experiencia ayudando a personas como tú...",
       profileComplete: "90%",
@@ -215,18 +201,29 @@ export const quizSteps = [
     question: "¡FELICITACIONES! He analizado tus respuestas y tengo buenas noticias para ti.",
     description:
       "Basándome en tu perfil y situación específica, el PLAN A tiene un 90,5% de probabilidades de funcionar en tu caso.",
-    options: ["¡QUIERO VER MI PLAN AHORA!"],
+    options: ["¿VAMOS AL SIGUIENTE PASO?"],
     note: "Estoy aquí para guiarte personalmente en este viaje de reconquista. En los últimos 7 años, he ayudado a más de 3.847 personas a recuperar sus relaciones usando este método exclusivo.",
     elements: {
       expertPhoto: true,
-      // 🔥 IMAGEM DO EXPERT CORRIGIDA
+      // 🔥 IMAGEM DO EXPERT CORRIGIDA (SEM DATA FUTURA)
       expertImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/expert-professional.jpg",
-      profileComplete: "100%",
+      profileComplete: "95%",
       helpedCounter: "Personas ayudadas hoy: 17",
       compatibilityCalc: "90,5%",
-      finalCTA: true,
     },
   },
+  // ✅ STEP 12 MANTIDO EXATAMENTE COMO ESTAVA (SEM ALTERAÇÕES)
+  {
+    id: 12,
+    question: "¡TU PLAN DE ACCIÓN PERSONALIZADO ESTÁ LISTO!",
+    description: "Basado en tus respuestas, he creado la estrategia exacta para que recuperes a tu amor.",
+    options: ["¡QUIERO VER MI PLAN AHORA!"],
+    note: "Prepárate para descubrir los pasos que te llevarán al éxito.",
+    elements: {
+      finalReveal: true,
+      profileComplete: "100%",
+    },
+  }
 ]
 
 export const bonuses = [
@@ -251,31 +248,21 @@ export const testimonials = [
     name: "Carlos M., 34 años",
     text: "¡Volvió a responderme al 3er día y me propuso vernos al 6º día!",
     rating: 5,
-    image: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/Persona-1.webp",
   },
   {
     name: "Rafael, 32 años",
     text: "Estaba perdido después de la ruptura. El Plan A me dio dirección y confianza. ¡Hoy estamos más unidos que nunca!",
     rating: 5,
-    image: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/Persona-1.webp",
   },
   {
     name: "André, 28 años",
     text: "En solo 2 semanas siguiendo el Plan A, logré reconquistar a mi ex. ¡Los guiones funcionaron perfectamente!",
     rating: 5,
-    image: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/Persona-1.webp",
   },
   {
     name: "Marcelo, 41 años",
     text: "Después de 6 meses separados, pensé que ya no tenía oportunidad. En el día 12 del Plan A me llamó llorando queriendo volver.",
     rating: 5,
-    image: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/Persona-1.webp",
-  },
-  {
-    name: "Diego L., 29 años",
-    text: "Seleccioné nivel 4 y en 18 días estábamos juntos otra vez. El método realmente funciona cuando te comprometes al 100%.",
-    rating: 5,
-    image: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/Persona-1.webp",
   },
 ]
 
@@ -286,10 +273,10 @@ export const socialProofMessages = [
   "¡Has desbloqueado los 2 bonos - valor total de $84!",
   "El 87% de las personas en tu situación lograron resultados en menos de 14 días",
   "Estás más comprometido que el 73% de las personas que hicieron esta prueba",
-  "Tu caso muestra señales muy prometedoras para la reconquista",
-  "Personas con tu perfil tienen 89% de tasa de éxito",
-  "Has completado más etapas que el 76% de usuarios",
-  "Tu nivel de compromiso está en el top 15%",
+  "-",
+  "-",
+  "-",
+  "-",
 ]
 
 // Función utilitaria para personalizar textos basados en el género
@@ -306,29 +293,4 @@ export function getPersonalizedContent(content, gender) {
   }
 
   return content
-}
-
-// 🔥 NOVA FUNÇÃO: Obter testemunho aleatório para variação
-export function getRandomTestimonial() {
-  const randomIndex = Math.floor(Math.random() * testimonials.length)
-  return testimonials[randomIndex]
-}
-
-// 🔥 NOVA FUNÇÃO: Obter testemunho específico por step
-export function getTestimonialByStep(stepId) {
-  const testimonialMap = {
-    4: testimonials[0], // Carlos M.
-    6: testimonials[1], // Rafael S.
-    7: testimonials[2], // André M.
-    8: testimonials[3], // Marcelo R.
-    9: testimonials[4], // Diego L.
-  }
-  
-  return testimonialMap[stepId] || testimonials[0]
-}
-
-// 🔥 NOVA FUNÇÃO: Validar se step tem testemunho
-export function hasTestimonial(stepId) {
-  const stepsWithTestimonials = [4, 6, 7, 8, 9]
-  return stepsWithTestimonials.includes(stepId)
 }
