@@ -60,7 +60,7 @@ export const quizSteps = [
       testimonialDisplay: true,
       testimonialName: "Carlos M.",
       testimonialText: "¡Volvió a responderme al 3er día y me propuso vernos al 6º día!",
-      testimonialImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/Persona-1.webp",
+      testimonialImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/Captura-de-Tela-2025-08-08-as-19.01.05.png",
     },
   },
   {
@@ -163,7 +163,7 @@ export const quizSteps = [
       testimonialDisplay: true,
       testimonialName: "Rafael S.",
       testimonialText: "Estaba perdido después de la ruptura. El Plan A me dio dirección y confianza. ¡Hoy estamos más unidos que nunca!",
-      testimonialImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/Persona-1.webp",
+      testimonialImage: "https://nutricaoalimentos.shop/wp-content/uploads/2025/09/lg-9xvta-canva-couple-in-love-mafv-z4mya0.jpg",
     },
   },
   {
@@ -191,7 +191,7 @@ export const quizSteps = [
     elements: {
       expertPhoto: true,
       // 🔥 IMAGEM DO EXPERT CORRIGIDA (SEM DATA FUTURA)
-      expertImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/expert-professional.jpg",
+      expertImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/09/Generated-Image-September-07_-2025-12_00AM-_1_.webp",
       autoMessage: "Basándome en 7 años de experiencia ayudando a personas como tú...",
       profileComplete: "90%",
     },
@@ -206,7 +206,7 @@ export const quizSteps = [
     elements: {
       expertPhoto: true,
       // 🔥 IMAGEM DO EXPERT CORRIGIDA (SEM DATA FUTURA)
-      expertImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/08/expert-professional.jpg",
+      expertImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/09/Generated-Image-September-07_-2025-12_00AM-_1_.webp",
       profileComplete: "95%",
       helpedCounter: "Personas ayudadas hoy: 17",
       compatibilityCalc: "90,5%",
