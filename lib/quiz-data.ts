@@ -191,7 +191,7 @@ export const quizSteps = [
     elements: {
       expertPhoto: true,
       // 🔥 IMAGEM DO EXPERT CORRIGIDA (SEM DATA FUTURA)
-      expertImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/09/Generated-Image-September-07_-2025-12_00AM-_1_.webp",
+      expertImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/09/Generated-Image-September-07_-2025-12_00AM-_1_-e1757389118756.webp",
       autoMessage: "Basándome en 7 años de experiencia ayudando a personas como tú...",
       profileComplete: "90%",
     },
@@ -206,7 +206,7 @@ export const quizSteps = [
     elements: {
       expertPhoto: true,
       // 🔥 IMAGEM DO EXPERT CORRIGIDA (SEM DATA FUTURA)
-      expertImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/09/Generated-Image-September-07_-2025-12_00AM-_1_.webp",
+      expertImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/09/Generated-Image-September-07_-2025-12_00AM-_1_-e1757389118756.webp",
       profileComplete: "95%",
       helpedCounter: "Personas ayudadas hoy: 17",
       compatibilityCalc: "90,5%",
