@@ -140,9 +140,6 @@ export default function ResultPageOptimized() {
               👆 MIRA HASTA EL FINAL PARA ACCEDER A LA OFERTA ESPECIAL
             </div>
             
-            <p className="text-white text-sm sm:text-lg font-semibold px-4 max-w-2xl mx-auto">
-              En este video, 3 especialistas revelan los <span className="text-orange-400 font-bold">disparadores psicológicos exactos</span> que harán que {getPersonalizedPronoun()} regrese sin perseguir ni suplicar.
-            </p>
           </div>
 
         </motion.div>
