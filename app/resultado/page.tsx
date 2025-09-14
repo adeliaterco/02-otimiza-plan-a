@@ -105,7 +105,7 @@ export default function ResultPageOptimized() {
           >
             {/* Headline Principal */}
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 sm:mb-6 leading-tight max-w-full break-words">
-              🎯 <span className="text-orange-400">¡FELICITACIONES!</span>
+              🎯 <span className="text-orange-400">¡ENHORABUENA!</span>
               <br />
               TU CASO TIENE <span className="text-green-400">90,5%</span>
               <br />
@@ -147,7 +147,7 @@ export default function ResultPageOptimized() {
               
               <div className="max-w-2xl mx-auto mb-6 w-full">
                 <p className="text-base sm:text-lg text-gray-300 mb-4 break-words">
-                  Mira este video donde 3 especialistas revelan:
+                  Mira este vídeo donde 3 especialistas revelan:
                 </p>
                 <div className="text-left bg-black/30 rounded-lg p-3 sm:p-4 space-y-2 w-full">
                   <div className="flex items-start text-white text-sm sm:text-base">
@@ -156,7 +156,7 @@ export default function ResultPageOptimized() {
                   </div>
                   <div className="flex items-start text-white text-sm sm:text-base">
                     <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="break-words">Los <strong className="text-orange-400">3 disparadores</strong> que funcionan en 21 días</span>
+                    <span className="break-words">Los <strong className="text-orange-400">disparadores</strong> que funcionan en 21 días</span>
                   </div>
                   <div className="flex items-start text-white text-sm sm:text-base">
                     <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
@@ -212,7 +212,7 @@ export default function ResultPageOptimized() {
                   onTouchStart={handleTouchFeedback}
                 >
                   <Heart className="w-5 h-5 sm:w-6 sm:h-6 mr-2 flex-shrink-0" />
-                  <span className="text-center leading-tight break-words">QUIERO APLICAR ESTE MÉTODO - $14</span>
+                  <span className="text-center leading-tight break-words">QUIERO APLICAR ESTE MÉTODO - 14€</span>
                   <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 flex-shrink-0" />
                 </Button>
               </motion.div>
@@ -307,7 +307,7 @@ export default function ResultPageOptimized() {
                 
                 {/* Badge de Oferta */}
                 <div className="bg-yellow-400 text-black font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-full inline-block mb-4 sm:mb-6 text-base sm:text-lg max-w-full">
-                  🔥 OFERTA ESPECIAL - SOLO HOY
+                  🔥 OFERTA ESPECIAL - SÓLO HOY
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6 break-words">PLAN A - RECUPERACIÓN RÁPIDA</h2>
@@ -315,10 +315,10 @@ export default function ResultPageOptimized() {
                 {/* Preço Simples */}
                 <div className="bg-black/20 rounded-lg p-4 sm:p-6 mb-4 sm:mb-6 w-full">
                   <div className="text-center mb-4">
-                    <div className="text-4xl sm:text-6xl font-black text-yellow-300 mb-2">$14</div>
+                    <div className="text-4xl sm:text-6xl font-black text-yellow-300 mb-2">14€</div>
                     <div className="text-lg sm:text-xl">
-                      <span className="line-through text-gray-400 mr-3">$97</span>
-                      <span className="text-green-400 font-bold">AHORRAS $83</span>
+                      <span className="line-through text-gray-400 mr-3">99,90€</span>
+                      <span className="text-green-400 font-bold">AHORRAS 86€</span>
                     </div>
                   </div>
 
@@ -330,11 +330,11 @@ export default function ResultPageOptimized() {
                     </div>
                     <div className="flex items-start text-white text-sm sm:text-base">
                       <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="break-words">21 Disparadores Emocionales ($47)</span>
+                      <span className="break-words">21 Disparadores Emocionales (47€)</span>
                     </div>
                     <div className="flex items-start text-white text-sm sm:text-base">
                       <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="break-words">Protocolo de Emergencia 72H ($37)</span>
+                      <span className="break-words">Protocolo de Emergencia 72H (37€)</span>
                     </div>
                     <div className="flex items-start text-white text-sm sm:text-base">
                       <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
@@ -365,7 +365,7 @@ export default function ResultPageOptimized() {
                     className="w-full max-w-lg mx-auto bg-yellow-500 hover:bg-yellow-600 text-black font-black py-4 sm:py-6 px-4 sm:px-8 rounded-full text-lg sm:text-2xl shadow-2xl transition-all duration-300 transform hover:scale-105 border-2 sm:border-4 border-white min-h-[60px] sm:min-h-[72px] flex items-center justify-center box-border"
                     onTouchStart={handleTouchFeedback}
                   >
-                    <span className="text-center leading-tight break-words">💕 RECUPERAR AHORA POR $14</span>
+                    <span className="text-center leading-tight break-words">💕 RECUPERAR AHORA POR 14€</span>
                     <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 flex-shrink-0" />
                   </Button>
                 </motion.div>
@@ -456,7 +456,7 @@ export default function ResultPageOptimized() {
             <div className="bg-black/20 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-2 sm:border-4 border-yellow-400 w-full">
               <h2 className="text-2xl sm:text-3xl font-black text-white mb-4 break-words">⏰ ÚLTIMA OPORTUNIDAD</h2>
               <p className="text-lg sm:text-xl text-white mb-4 sm:mb-6 font-semibold break-words">
-                Esta oferta expira en minutos. Después vuelve a $97.
+                Esta oferta expira en minutos. Después vuelve a 99,90€.
               </p>
 
               <div className="bg-red-800 p-3 sm:p-4 rounded-lg mb-4 sm:mb-6 w-full">
