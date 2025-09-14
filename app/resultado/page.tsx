@@ -68,7 +68,7 @@ export default function ResultPageOptimized() {
     } catch (error) {
       console.error("Error al registrar evento de clic:", error)
     }
-    window.open("https://pay.hotmart.com/F100142422S?off=51wn2b7b&checkoutMode=10", "_blank")
+    window.open("https://pay.hotmart.com/F100142422S?off=qqcmu6vg&checkoutMode=10", "_blank")
   }
 
   const getPersonalizedPronoun = () => {
