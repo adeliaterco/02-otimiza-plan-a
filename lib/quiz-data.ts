@@ -29,7 +29,7 @@ export const quizSteps = [
   },
   {
     id: 3,
-    question: "¿CUÁNTO TIEMPO LLEVAN SEPARADOS?",
+    question: "¿CUÁNTO TIEMPO LLEVÁIS SEPARADOS?",
     description: "(El tiempo es un factor crítico para tu estrategia de reconquista)",
     options: {
       masculino: ["Menos de una semana", "Hace 1 mes", "De 2 a 6 meses", "Más de 6 meses"],
@@ -45,13 +45,13 @@ export const quizSteps = [
   {
     id: 4,
     question: {
-      masculino: "¿CÓMO FUE SU SEPARACIÓN?",
-      feminino: "¿CÓMO FUE SU SEPARACIÓN?",
+      masculino: "¿CÓMO FUE VUESTRA SEPARACIÓN?",
+      feminino: "¿CÓMO FUE VUESTRA SEPARACIÓN?",
     },
     description: "(Esta información es vital para determinar tu estrategia específica)",
     options: {
-      masculino: ["Ella terminó conmigo", "Yo terminé con ella", "Decidimos terminar de mutuo acuerdo"],
-      feminino: ["Él terminó conmigo", "Yo terminé con él", "Decidimos terminar de mutuo acuerdo"],
+      masculino: ["Ella cortó conmigo", "Yo corté con ella", "Decidimos cortar de mutuo acuerdo"],
+      feminino: ["Él cortó conmigo", "Yo corté con él", "Decidimos cortar de mutuo acuerdo"],
     },
     elements: {
       analysisText: "Calculando tasa de éxito para tu caso...",
@@ -65,7 +65,7 @@ export const quizSteps = [
   },
   {
     id: 5,
-    question: "¿CUÁNTO TIEMPO ESTUVIERON JUNTOS?",
+    question: "¿CUÁNTO TIEMPO ESTUVISTEIS JUNTOS?",
     description: "(La duración de la relación influye directamente en tu estrategia)",
     options: ["Más de 3 años", "De 1 a 3 años", "De 6 meses a 1 año", "Menos de 6 meses"],
   },
@@ -108,7 +108,7 @@ export const quizSteps = [
         "🧐 Estoy aplicando contacto cero",
         "😢 Ella me ignora completamente",
         "❌ Me ha bloqueado en todas las redes sociales",
-        "�� Hablamos solo de cosas necesarias",
+        "🤝 Hablamos sólo de cosas necesarias",
         "🤔 Charlamos de vez en cuando",
         "😌 Seguimos siendo amigos",
         "🔥 Hemos tenido encuentros íntimos después de la ruptura",
@@ -117,7 +117,7 @@ export const quizSteps = [
         "🧐 Estoy aplicando contacto cero",
         "😢 Él me ignora completamente",
         "❌ Me ha bloqueado en todas las redes sociales",
-        "🤝 Hablamos solo de cosas necesarias",
+        "🤝 Hablamos sólo de cosas necesarias",
         "🤔 Charlamos de vez en cuando",
         "😌 Seguimos siendo amigos",
         "🔥 Hemos tenido encuentros íntimos después de la ruptura",
@@ -176,7 +176,7 @@ export const quizSteps = [
     subtext:
       "El 91% de las personas que seleccionaron nivel 4 reconquistaron a su ex en menos de 21 días usando el PLAN A.",
     options: ["1 - No estoy seguro", "2 - Me lo estoy pensando", "3 - Lo quiero bastante", "4 - Lo quiero muchísimo"],
-    note: "Solo trabajo con personas decididas a transformar su situación amorosa. El PLAN A fue desarrollado para quien está preparado para actuar.",
+    note: "Sólo trabajo con personas decididas a transformar su situación amorosa. El PLAN A fue desarrollado para quien está preparado para actuar.",
     elements: {
       thermometer: true,
       profileComplete: "85%",
@@ -198,7 +198,7 @@ export const quizSteps = [
   },
   {
     id: 11,
-    question: "¡FELICITACIONES! He analizado tus respuestas y tengo buenas noticias para ti.",
+    question: "¡ENHORABUENA! He analizado tus respuestas y tengo buenas noticias para ti.",
     description:
       "Basándome en tu perfil y situación específica, el PLAN A tiene un 90,5% de probabilidades de funcionar en tu caso.",
     options: ["¿VAMOS AL SIGUIENTE PASO?"],
@@ -256,7 +256,7 @@ export const testimonials = [
   },
   {
     name: "André, 28 años",
-    text: "En solo 2 semanas siguiendo el Plan A, logré reconquistar a mi ex. ¡Los guiones funcionaron perfectamente!",
+    text: "En sólo 2 semanas siguiendo el Plan A, logré reconquistar a mi ex. ¡Los guiones funcionaron perfectamente!",
     rating: 5,
   },
   {
@@ -270,7 +270,7 @@ export const socialProofMessages = [
   "¡Estás entre el 17% más decidido a reconquistar!",
   "¡Tu perfil muestra compatibilidad!",
   "¡Bonificación liberada por desbloqueo!",
-  "¡Has desbloqueado los 2 bonos - valor total de $84!",
+  "¡Has desbloqueado los 2 bonos - valor total de 84€!",
   "El 87% de las personas en tu situación lograron resultados en menos de 14 días",
   "Estás más comprometido que el 73% de las personas que hicieron esta prueba",
   "-",
