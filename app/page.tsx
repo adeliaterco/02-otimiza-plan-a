@@ -177,7 +177,7 @@ export default function HomePage() {
         {isLoading && (
           <div className="loading-overlay">
             <div className="loading-content">
-              <div style={{ fontSize: "18px", fontWeight: "600" }}>Preparando tu quiz personalizado...</div>
+              <div style={{ fontSize: "18px", fontWeight: "600" }}>Preparando tu cuestionario personalizado...</div>
               <div className="progress-bar">
                 <div className="progress-fill" style={{ width: `${loadingProgress}%` }} />
               </div>
@@ -234,7 +234,7 @@ export default function HomePage() {
               zIndex: 1000,
             }}
           >
-            ⚠️ Sem conexão com a internet
+            ⚠️ Sin conexión a internet
           </div>
         )}
 
@@ -265,7 +265,7 @@ export default function HomePage() {
 <h1 className="titulo-principal">
   ¿ELLA TE DEJÓ Y NO SABES QUÉ HACER?
   <br />
-  ESTE MÉTODO TE LA DEVUELVE EN 14 DÍAS
+  ESTE MÉTODO TE LA DEVUELVE EN 21 DÍAS
   <span style={{color: "#FFD700", display: "block", marginTop: "15px", fontSize: "22px"}}>
     (Funciona aunque esté con otro)
   </span>
