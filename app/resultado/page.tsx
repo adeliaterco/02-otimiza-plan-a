@@ -313,8 +313,8 @@ export default function ResultPageOptimized() {
                   <div className="text-center mb-4">
                     <div className="text-4xl sm:text-6xl font-black text-yellow-300 mb-2">19$</div>
                     <div className="text-lg sm:text-xl">
-                      <span className="line-through text-gray-400 mr-3">99,90€</span>
-                      <span className="text-green-400 font-bold">AHORRAS 86€</span>
+                      <span className="line-through text-gray-400 mr-3">99,90$</span>
+                      <span className="text-green-400 font-bold">AHORRAS 86$</span>
                     </div>
                   </div>
 
@@ -326,11 +326,11 @@ export default function ResultPageOptimized() {
                     </div>
                     <div className="flex items-start text-white text-sm sm:text-base">
                       <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="break-words">21 Disparadores Emocionales (47€)</span>
+                      <span className="break-words">21 Disparadores Emocionales (47$)</span>
                     </div>
                     <div className="flex items-start text-white text-sm sm:text-base">
                       <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="break-words">Protocolo de Emergencia 72H (37€)</span>
+                      <span className="break-words">Protocolo de Emergencia 72H (37$)</span>
                     </div>
                     <div className="flex items-start text-white text-sm sm:text-base">
                       <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
@@ -444,7 +444,7 @@ export default function ResultPageOptimized() {
             <div className="bg-black/20 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-2 sm:border-4 border-yellow-400 w-full">
               <h2 className="text-2xl sm:text-3xl font-black text-white mb-4 break-words">Accede ahora por 19$</h2>
               <p className="text-lg sm:text-xl text-white mb-4 sm:mb-6 font-semibold break-words">
-                Después vuelve a 99€.
+                Después vuelve a 99$.
               </p>
 
               {/* ✅ COUNTDOWN ÚNICO - REMOVIDO O SEGUNDO */}
