@@ -94,7 +94,7 @@ export default function ResultPageOptimized() {
 
       <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black overflow-x-hidden w-full max-w-[100vw]" ref={contentRef}>
         
-        {/* ✅ SEÇÃO 1: RESULTADO INICIAL ENXUTO */}
+        {/* ✅ SEÇÃO 1: RESULTADO + VSL INTEGRADOS */}
         <div className="relative overflow-hidden w-full">
           <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-red-600/20 animate-pulse"></div>
 
@@ -103,13 +103,11 @@ export default function ResultPageOptimized() {
             animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : -20 }}
             className="relative z-10 px-4 py-6 sm:py-8 text-center w-full"
           >
-            {/* Headline Principal */}
+            {/* ✅ HEADLINE OTIMIZADA - MENOS AGRESSIVA */}
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 sm:mb-6 leading-tight max-w-full break-words">
-              🎯 <span className="text-orange-400">¡ENHORABUENA!</span>
+              Tu evaluación está completa
               <br />
-              TU CASO TIENE <span className="text-green-400">90,5%</span>
-              <br />
-              DE PROBABILIDAD DE ÉXITO
+              <span className="text-green-400">PROBABILIDAD DE ÉXITO: 90,5%</span>
             </h1>
 
             {/* Resultado Visual Simples */}
@@ -132,104 +130,102 @@ export default function ResultPageOptimized() {
 
             {/* Transição para VSL */}
             <p className="text-lg sm:text-xl text-gray-300 mb-4 font-semibold max-w-full break-words px-2">
-              Ahora descubre <span className="text-orange-400 font-bold">cómo es posible</span> este resultado:
+              Descubre <span className="text-orange-400 font-bold">cómo es posible</span> este resultado:
             </p>
+
+            {/* ✅ VSL INTEGRADO NA MESMA SEÇÃO */}
+            <div className="max-w-4xl mx-auto w-full">
+              <div className="text-center mb-6">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 max-w-full break-words">
+                  <span className="text-orange-400">EL MÉTODO</span> QUE HACE POSIBLE TU RESULTADO
+                </h2>
+                
+                <div className="max-w-2xl mx-auto mb-6 w-full">
+                  <p className="text-base sm:text-lg text-gray-300 mb-4 break-words">
+                    Mira este vídeo donde 3 especialistas revelan:
+                  </p>
+                  <div className="text-left bg-black/30 rounded-lg p-3 sm:p-4 space-y-2 w-full">
+                    <div className="flex items-start text-white text-sm sm:text-base">
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="break-words">Por qué tu caso tiene <strong className="text-orange-400">90,5% de éxito</strong></span>
+                    </div>
+                    <div className="flex items-start text-white text-sm sm:text-base">
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="break-words">Los <strong className="text-orange-400">disparadores</strong> que funcionan en 21 días</span>
+                    </div>
+                    <div className="flex items-start text-white text-sm sm:text-base">
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="break-words">Cómo aplicarlo <strong className="text-orange-400">paso a paso</strong></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* VSL CENTRALIZADA COM VTURB */}
+              <div className="flex justify-center mb-6 sm:mb-8 w-full">
+                <div className="w-full max-w-3xl">
+                  <div className="relative bg-black rounded-xl sm:rounded-2xl p-2 sm:p-4 border-2 sm:border-4 border-orange-500 shadow-2xl w-full">
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-red-600/20 rounded-xl sm:rounded-2xl animate-pulse"></div>
+                    <div className="relative z-10 w-full">
+                      <vturb-smartplayer 
+                        id="vid-68c7af5a35fa1399fdae5161" 
+                        style={{
+                          display: 'block',
+                          margin: '0 auto',
+                          width: '100%',
+                          maxWidth: '100%',
+                          borderRadius: '8px',
+                          overflow: 'hidden'
+                        }}
+                      ></vturb-smartplayer>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* ✅ CTA UNIFICADO - LINGUAGEM CONSISTENTE */}
+              <div className="text-center w-full">
+                <div className="bg-orange-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-full inline-block font-bold text-base sm:text-lg mb-4 sm:mb-6 animate-bounce max-w-full">
+                  👆 APLICA ESTO Y VERÁS RESULTADOS EN DÍAS
+                </div>
+
+                <motion.div
+                  animate={{
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Number.POSITIVE_INFINITY,
+                    repeatType: "reverse",
+                  }}
+                  className="w-full"
+                >
+                  <Button
+                    onClick={handlePurchase}
+                    size="lg"
+                    className="w-full max-w-md mx-auto bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-black py-4 sm:py-6 px-4 sm:px-8 rounded-full text-lg sm:text-xl shadow-2xl transition-all duration-300 transform hover:scale-105 border-2 sm:border-4 border-yellow-400 min-h-[56px] sm:min-h-[64px] flex items-center justify-center box-border"
+                    onTouchStart={handleTouchFeedback}
+                  >
+                    <Heart className="w-5 h-5 sm:w-6 sm:h-6 mr-2 flex-shrink-0" />
+                    <span className="text-center leading-tight break-words">ACCEDER AL MÉTODO - 19€</span>
+                    <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 flex-shrink-0" />
+                  </Button>
+                </motion.div>
+
+                <p className="text-white text-base sm:text-lg font-semibold mt-4 max-w-full break-words px-2">
+                  Ahora que conoces el método, es hora de <span className="text-orange-400">ponerlo en práctica</span>
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
 
-        {/* ✅ SEÇÃO 2: VSL PRINCIPAL (POSIÇÃO OTIMIZADA) */}
-        <div className="px-4 py-6 sm:py-8 bg-gradient-to-r from-gray-900 to-black w-full">
-          <div className="max-w-4xl mx-auto w-full">
-            <div className="text-center mb-6">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 max-w-full break-words">
-                🎯 <span className="text-orange-400">EL MÉTODO</span> QUE HACE POSIBLE TU RESULTADO
-              </h2>
-              
-              <div className="max-w-2xl mx-auto mb-6 w-full">
-                <p className="text-base sm:text-lg text-gray-300 mb-4 break-words">
-                  Mira este vídeo donde 3 especialistas revelan:
-                </p>
-                <div className="text-left bg-black/30 rounded-lg p-3 sm:p-4 space-y-2 w-full">
-                  <div className="flex items-start text-white text-sm sm:text-base">
-                    <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="break-words">Por qué tu caso tiene <strong className="text-orange-400">90,5% de éxito</strong></span>
-                  </div>
-                  <div className="flex items-start text-white text-sm sm:text-base">
-                    <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="break-words">Los <strong className="text-orange-400">disparadores</strong> que funcionan en 21 días</span>
-                  </div>
-                  <div className="flex items-start text-white text-sm sm:text-base">
-                    <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="break-words">Cómo aplicarlo <strong className="text-orange-400">paso a paso</strong></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* VSL CENTRALIZADA COM VTURB */}
-            <div className="flex justify-center mb-6 sm:mb-8 w-full">
-              <div className="w-full max-w-3xl">
-                <div className="relative bg-black rounded-xl sm:rounded-2xl p-2 sm:p-4 border-2 sm:border-4 border-orange-500 shadow-2xl w-full">
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-red-600/20 rounded-xl sm:rounded-2xl animate-pulse"></div>
-                  <div className="relative z-10 w-full">
-                    <vturb-smartplayer 
-                      id="vid-68c7af5a35fa1399fdae5161" 
-                      style={{
-                        display: 'block',
-                        margin: '0 auto',
-                        width: '100%',
-                        maxWidth: '100%',
-                        borderRadius: '8px',
-                        overflow: 'hidden'
-                      }}
-                    ></vturb-smartplayer>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA ÚNICO APÓS VSL */}
-            <div className="text-center w-full">
-              <div className="bg-orange-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-full inline-block font-bold text-base sm:text-lg mb-4 sm:mb-6 animate-bounce max-w-full">
-                👆 APLICA ESTO Y VERÁS RESULTADOS EN DÍAS
-              </div>
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.05, 1],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "reverse",
-                }}
-                className="w-full"
-              >
-                <Button
-                  onClick={handlePurchase}
-                  size="lg"
-                  className="w-full max-w-md mx-auto bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-black py-4 sm:py-6 px-4 sm:px-8 rounded-full text-lg sm:text-xl shadow-2xl transition-all duration-300 transform hover:scale-105 border-2 sm:border-4 border-yellow-400 min-h-[56px] sm:min-h-[64px] flex items-center justify-center box-border"
-                  onTouchStart={handleTouchFeedback}
-                >
-                  <Heart className="w-5 h-5 sm:w-6 sm:h-6 mr-2 flex-shrink-0" />
-                  <span className="text-center leading-tight break-words">QUIERO APLICAR ESTE MÉTODO - 19€</span>
-                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 flex-shrink-0" />
-                </Button>
-              </motion.div>
-
-              <p className="text-white text-base sm:text-lg font-semibold mt-4 max-w-full break-words px-2">
-                Ahora que conoces el método, es hora de <span className="text-orange-400">ponerlo en práctica</span>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* ✅ SEÇÃO 3: PROVA SOCIAL RÁPIDA (1 DEPOIMENTO EM VÍDEO) */}
+        {/* ✅ SEÇÃO 2: PROVA SOCIAL SIMPLIFICADA */}
         <div className="px-4 py-6 sm:py-8 bg-gradient-to-r from-black to-gray-900 w-full">
           <div className="max-w-4xl mx-auto w-full">
             <div className="text-center mb-6">
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 max-w-full break-words">
-                💬 <span className="text-orange-400">TESTIMONIO REAL</span> DE QUIEN YA LO LOGRÓ
+                <span className="text-orange-400">TESTIMONIO REAL</span> DE QUIEN YA LO LOGRÓ
               </h3>
               <p className="text-gray-300 text-sm sm:text-base break-words">
                 Escucha la historia de transformación usando exactamente el mismo método
@@ -274,7 +270,7 @@ export default function ResultPageOptimized() {
                       onTouchStart={handleTouchFeedback}
                     >
                       <Play className="w-3 h-3 mr-1 flex-shrink-0" />
-                      <span className="truncate">QUIERO LOS MISMOS RESULTADOS</span>
+                      <span className="truncate">ACCEDER AL MÉTODO</span>
                     </Button>
                   </div>
                 </div>
@@ -299,15 +295,15 @@ export default function ResultPageOptimized() {
           </div>
         </div>
 
-        {/* ✅ SEÇÃO 4: OFERTA FINAL SIMPLIFICADA */}
+        {/* ✅ SEÇÃO 3: OFERTA SIMPLIFICADA */}
         <div className="px-4 py-6 sm:py-8 w-full">
           <div className="max-w-4xl mx-auto w-full">
             <Card className="bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-2xl border-2 sm:border-4 border-yellow-400 w-full">
               <CardContent className="p-4 sm:p-6 md:p-8 text-center w-full">
                 
-                {/* Badge de Oferta */}
+                {/* ✅ BADGE SIMPLIFICADO - MENOS AGRESSIVO */}
                 <div className="bg-yellow-400 text-black font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-full inline-block mb-4 sm:mb-6 text-base sm:text-lg max-w-full">
-                  🔥 OFERTA ESPECIAL - SÓLO HOY
+                  OFERTA ESPECIAL
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6 break-words">PLAN A - RECUPERACIÓN RÁPIDA</h2>
@@ -347,7 +343,7 @@ export default function ResultPageOptimized() {
                   </div>
                 </div>
 
-                {/* CTA Principal Único */}
+                {/* ✅ CTA UNIFICADO */}
                 <motion.div
                   animate={{
                     scale: [1, 1.05, 1],
@@ -365,18 +361,10 @@ export default function ResultPageOptimized() {
                     className="w-full max-w-lg mx-auto bg-yellow-500 hover:bg-yellow-600 text-black font-black py-4 sm:py-6 px-4 sm:px-8 rounded-full text-lg sm:text-2xl shadow-2xl transition-all duration-300 transform hover:scale-105 border-2 sm:border-4 border-white min-h-[60px] sm:min-h-[72px] flex items-center justify-center box-border"
                     onTouchStart={handleTouchFeedback}
                   >
-                    <span className="text-center leading-tight break-words">💕 RECUPERAR AHORA POR 19€</span>
+                    <span className="text-center leading-tight break-words">ACCEDER AL MÉTODO - 19€</span>
                     <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 flex-shrink-0" />
                   </Button>
                 </motion.div>
-
-                {/* Urgência Final */}
-                <div className="bg-red-800 p-3 sm:p-4 rounded-lg mb-4 w-full">
-                  <p className="text-yellow-300 font-bold text-base sm:text-lg mb-2">⏰ OFERTA EXPIRA EN:</p>
-                  <div className="text-2xl sm:text-3xl font-black text-white">
-                    <CountdownTimer minutes={15} seconds={0} />
-                  </div>
-                </div>
 
                 {/* Social Proof Final */}
                 <div className="flex justify-center gap-2 sm:gap-4 text-xs sm:text-sm text-white mb-4 flex-wrap">
@@ -394,7 +382,7 @@ export default function ResultPageOptimized() {
           </div>
         </div>
 
-        {/* ✅ SEÇÃO 5: GARANTIA SIMPLES */}
+        {/* ✅ SEÇÃO 4: GARANTIA SIMPLES */}
         <div className="px-4 py-6 sm:py-8 bg-gradient-to-r from-green-900/30 to-emerald-900/30 w-full">
           <div className="max-w-4xl mx-auto w-full">
             <Card className="bg-green-50 border-2 sm:border-4 border-green-400 shadow-2xl w-full">
@@ -412,7 +400,7 @@ export default function ResultPageOptimized() {
           </div>
         </div>
 
-        {/* ✅ SEÇÃO 6: FAQ MÍNIMO (SÓ 3 PERGUNTAS) */}
+        {/* ✅ FAQ SIMPLIFICADO (SÓ 3 PERGUNTAS) */}
         <div className="px-4 py-6 sm:py-8 w-full">
           <div className="max-w-4xl mx-auto w-full">
             <h2 className="text-xl sm:text-2xl font-bold text-white text-center mb-6 sm:mb-8 break-words">PREGUNTAS FRECUENTES</h2>
@@ -450,15 +438,16 @@ export default function ResultPageOptimized() {
           </div>
         </div>
 
-        {/* ✅ CTA FINAL URGENTE */}
+        {/* ✅ CTA FINAL COM COUNTDOWN ÚNICO */}
         <div className="px-4 py-6 sm:py-8 bg-gradient-to-r from-red-600 to-orange-600 w-full">
           <div className="max-w-4xl mx-auto text-center w-full">
             <div className="bg-black/20 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-2 sm:border-4 border-yellow-400 w-full">
-              <h2 className="text-2xl sm:text-3xl font-black text-white mb-4 break-words">⏰ ÚLTIMA OPORTUNIDAD</h2>
+              <h2 className="text-2xl sm:text-3xl font-black text-white mb-4 break-words">Accede ahora por 19€</h2>
               <p className="text-lg sm:text-xl text-white mb-4 sm:mb-6 font-semibold break-words">
-                Esta oferta expira en minutos. Después vuelve a 99,90€.
+                Después vuelve a 99€.
               </p>
 
+              {/* ✅ COUNTDOWN ÚNICO - REMOVIDO O SEGUNDO */}
               <div className="bg-red-800 p-3 sm:p-4 rounded-lg mb-4 sm:mb-6 w-full">
                 <p className="text-yellow-300 font-bold text-base sm:text-lg mb-2">TIEMPO RESTANTE:</p>
                 <div className="text-3xl sm:text-4xl font-black text-white">
@@ -483,7 +472,7 @@ export default function ResultPageOptimized() {
                   className="w-full max-w-md mx-auto bg-yellow-500 hover:bg-yellow-600 text-black font-black py-4 sm:py-6 px-4 sm:px-8 rounded-full text-lg sm:text-2xl shadow-2xl transition-all duration-300 transform hover:scale-105 border-2 sm:border-4 border-white min-h-[60px] sm:min-h-[72px] flex items-center justify-center box-border"
                   onTouchStart={handleTouchFeedback}
                 >
-                  <span className="text-center leading-tight break-words">💕 ¡SÍ, QUIERO RECUPERAR AHORA!</span>
+                  <span className="text-center leading-tight break-words">ACCEDER AL MÉTODO</span>
                   <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 flex-shrink-0" />
                 </Button>
               </motion.div>
