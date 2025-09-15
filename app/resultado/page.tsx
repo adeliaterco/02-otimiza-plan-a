@@ -314,7 +314,7 @@ export default function ResultPageOptimized() {
                     <div className="text-4xl sm:text-6xl font-black text-yellow-300 mb-2">19€</div>
                     <div className="text-lg sm:text-xl">
                       <span className="line-through text-gray-400 mr-3">99,90€</span>
-                      <span className="text-green-400 font-bold">AHORRAS 86€</span>
+                      <span className="text-green-400 font-bold">AHORRAS 80€</span>
                     </div>
                   </div>
 
