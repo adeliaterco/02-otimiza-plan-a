@@ -207,7 +207,7 @@ export default function ResultPageOptimized() {
                     onTouchStart={handleTouchFeedback}
                   >
                     <Heart className="w-5 h-5 sm:w-6 sm:h-6 mr-2 flex-shrink-0" />
-                    <span className="text-center leading-tight break-words">ACCEDER AL MÉTODO - 19€</span>
+                    <span className="text-center leading-tight break-words">ACCEDER AL MÉTODO - 19$</span>
                     <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 flex-shrink-0" />
                   </Button>
                 </motion.div>
@@ -311,7 +311,7 @@ export default function ResultPageOptimized() {
                 {/* Preço Simples */}
                 <div className="bg-black/20 rounded-lg p-4 sm:p-6 mb-4 sm:mb-6 w-full">
                   <div className="text-center mb-4">
-                    <div className="text-4xl sm:text-6xl font-black text-yellow-300 mb-2">19€</div>
+                    <div className="text-4xl sm:text-6xl font-black text-yellow-300 mb-2">19$</div>
                     <div className="text-lg sm:text-xl">
                       <span className="line-through text-gray-400 mr-3">99,90€</span>
                       <span className="text-green-400 font-bold">AHORRAS 86€</span>
@@ -361,7 +361,7 @@ export default function ResultPageOptimized() {
                     className="w-full max-w-lg mx-auto bg-yellow-500 hover:bg-yellow-600 text-black font-black py-4 sm:py-6 px-4 sm:px-8 rounded-full text-lg sm:text-2xl shadow-2xl transition-all duration-300 transform hover:scale-105 border-2 sm:border-4 border-white min-h-[60px] sm:min-h-[72px] flex items-center justify-center box-border"
                     onTouchStart={handleTouchFeedback}
                   >
-                    <span className="text-center leading-tight break-words">ACCEDER AL MÉTODO - 19€</span>
+                    <span className="text-center leading-tight break-words">ACCEDER AL MÉTODO - 19$</span>
                     <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 flex-shrink-0" />
                   </Button>
                 </motion.div>
@@ -442,7 +442,7 @@ export default function ResultPageOptimized() {
         <div className="px-4 py-6 sm:py-8 bg-gradient-to-r from-red-600 to-orange-600 w-full">
           <div className="max-w-4xl mx-auto text-center w-full">
             <div className="bg-black/20 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-2 sm:border-4 border-yellow-400 w-full">
-              <h2 className="text-2xl sm:text-3xl font-black text-white mb-4 break-words">Accede ahora por 19€</h2>
+              <h2 className="text-2xl sm:text-3xl font-black text-white mb-4 break-words">Accede ahora por 19$</h2>
               <p className="text-lg sm:text-xl text-white mb-4 sm:mb-6 font-semibold break-words">
                 Después vuelve a 99€.
               </p>
