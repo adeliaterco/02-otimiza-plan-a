@@ -110,13 +110,15 @@ export default function HomePage() {
         }}
       >
         <style jsx>{`
-.btn-quiz-pulsante{background:linear-gradient(135deg,#dc2626 0%,#b91c1c 100%)!important;color:white!important;border:none!important;padding:18px 36px!important;font-size:19px!important;font-weight:bold!important;border-radius:50px!important;text-transform:uppercase!important;cursor:pointer!important;transition:all .3s ease!important;animation:pulsar 2s infinite!important;width:100%!important;max-width:320px!important;box-shadow:0 8px 25px rgba(220,38,38,.4)!important;letter-spacing:.5px!important}
-@keyframes pulsar{0%{transform:scale3d(1, 1, 1);box-shadow:0 8px 25px rgba(220,38,38,.4),0 0 0 0 rgba(220,38,38,.7)}70%{transform:scale3d(1.03, 1.03, 1);box-shadow:0 12px 35px rgba(220,38,38,.6),0 0 0 15px rgba(220,38,38,0)}100%{transform:scale3d(1, 1, 1);box-shadow:0 8px 25px rgba(220,38,38,.4),0 0 0 0 rgba(220,38,38,0)}}
+.btn-quiz-pulsante{background:linear-gradient(135deg,#dc2626 0%,#b91c1c 100%)!important;color:white!important;border:none!important;padding:18px 36px!important;font-size:19px!important;font-weight:bold!important;border-radius:50px!important;text-transform:uppercase!important;cursor:pointer!important;transition:all .3s ease!important;animation:pulsar-suave 3s infinite!important;width:100%!important;max-width:320px!important;box-shadow:0 8px 25px rgba(220,38,38,.4)!important;letter-spacing:.5px!important}
+@keyframes pulsar-suave{0%{transform:scale3d(1, 1, 1);box-shadow:0 8px 25px rgba(220,38,38,.4)}50%{transform:scale3d(1.02, 1.02, 1);box-shadow:0 12px 35px rgba(220,38,38,.6)}100%{transform:scale3d(1, 1, 1);box-shadow:0 8px 25px rgba(220,38,38,.4)}}
 .btn-quiz-pulsante:hover{background:linear-gradient(135deg,#b91c1c 0%,#991b1b 100%)!important;transform:scale(1.05)!important;box-shadow:0 15px 40px rgba(220,38,38,.7)!important}
-.container-preto{background:linear-gradient(145deg,#000 0%,#111 100%)!important;border:2px solid #333!important;border-radius:25px!important;padding:45px!important;max-width:650px!important;margin:0 auto!important;text-align:center!important;box-shadow:0 20px 60px rgba(0,0,0,.8)!important;backdrop-filter:blur(10px)!important;min-height: 400px;contain: layout style;}
-.titulo-principal{color:#fff!important;font-size:34px!important;font-weight:800!important;margin-bottom:25px!important;line-height:1.3!important;text-shadow:2px 2px 4px rgba(0,0,0,.5)!important;animation:fadeInUp 1.2s ease-out .3s both!important}
+.container-preto{background:linear-gradient(145deg,#000 0%,#111 100%)!important;border:1px solid #444!important;border-radius:25px!important;padding:45px!important;max-width:650px!important;margin:0 auto!important;text-align:center!important;box-shadow:0 20px 60px rgba(0,0,0,.8)!important;backdrop-filter:blur(10px)!important;min-height: 400px;contain: layout style;}
+.titulo-principal{color:#fff!important;font-size:34px!important;font-weight:800!important;margin-bottom:25px!important;line-height:1.3!important;text-shadow:1px 1px 2px rgba(0,0,0,.3)!important;animation:fadeInUp 1.2s ease-out .3s both!important}
 .subtitulo{color:#e5e5e5!important;font-size:19px!important;margin-bottom:35px!important;font-weight:500!important;line-height:1.4!important;animation:fadeInUp 1.2s ease-out .6s both!important}
-.texto-garantia{color:#a3a3a3!important;font-size:14px!important;margin-top:20px!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;font-weight:500!important}
+.texto-garantia{color:#a3a3a3!important;font-size:14px!important;margin-top:15px!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;font-weight:500!important}
+.elemento-confianca{margin-top:20px!important;padding:15px!important;background:rgba(255,255,255,0.05)!important;border-radius:10px!important;border:1px solid rgba(255,255,255,0.1)!important}
+.texto-confianca{color:#a3a3a3!important;font-size:14px!important;margin:0!important;font-weight:500!important}
 .indicador-progresso{display:flex!important;align-items:center!important;justify-content:center!important;gap:12px!important;margin-bottom:30px!important;color:#dc2626!important;font-size:14px!important;font-weight:600!important;animation:fadeInUp 1.2s ease-out .9s both!important}
 .circulo-progresso{width:12px!important;height:12px!important;border-radius:50%!important;background:#dc2626!important;box-shadow:0 0 10px rgba(220,38,38,.5)!important}
 .circulo-inativo{background:#333!important;box-shadow:none!important}
@@ -168,8 +170,8 @@ export default function HomePage() {
   padding-top: 100px;
   contain: layout style paint;}
 .copyright{position:relative;margin-top:40px;padding:20px;color:#888;font-size:12px;text-align:center}
-@media (max-width:768px){.container-preto{padding:25px!important;margin:10px!important;border-radius:20px!important}.logo-container{margin-bottom:30px!important}.logo-arredondada{width:160px!important;height:100px!important;border:3px solid #dc2626!important}.titulo-principal{font-size:26px!important;margin-bottom:18px!important;line-height:1.2!important}.subtitulo{font-size:16px!important;margin-bottom:25px!important}.depoimento{padding:15px;margin:20px auto;max-width:95%}.btn-quiz-pulsante{padding:16px 32px!important;font-size:16px!important;max-width:95%!important}.main-content{padding-top:20px;min-height:calc(100vh - 40px)}.copyright{margin-top:30px;padding:15px}}
-@media (max-width:480px){.container-preto{padding:20px!important;margin:5px!important}.logo-arredondada{width:140px!important;height:85px!important;border:2px solid #dc2626!important}.titulo-principal{font-size:22px!important;line-height:1.1!important}.subtitulo{font-size:14px!important}.depoimento{padding:12px;gap:10px;margin:15px auto}.avatar{width:35px;height:35px}.btn-quiz-pulsante{padding:14px 28px!important;font-size:14px!important}.copyright{margin-top:25px;padding:10px;font-size:11px}}
+@media (max-width:768px){.container-preto{padding:25px!important;margin:10px!important;border-radius:20px!important}.logo-container{margin-bottom:30px!important}.logo-arredondada{width:160px!important;height:100px!important;border:3px solid #dc2626!important}.titulo-principal{font-size:26px!important;margin-bottom:18px!important;line-height:1.2!important}.subtitulo{font-size:16px!important;margin-bottom:25px!important}.depoimento{padding:15px;margin:20px auto;max-width:95%}.btn-quiz-pulsante{padding:16px 32px!important;font-size:16px!important;max-width:95%!important}.main-content{padding-top:20px;min-height:calc(100vh - 40px)}.copyright{margin-top:30px;padding:15px}.elemento-confianca{padding:12px!important;margin-top:15px!important}.texto-confianca{font-size:12px!important}}
+@media (max-width:480px){.container-preto{padding:20px!important;margin:5px!important}.logo-arredondada{width:140px!important;height:85px!important;border:2px solid #dc2626!important}.titulo-principal{font-size:22px!important;line-height:1.1!important}.subtitulo{font-size:14px!important}.depoimento{padding:12px;gap:10px;margin:15px auto}.avatar{width:35px;height:35px}.btn-quiz-pulsante{padding:14px 28px!important;font-size:14px!important}.copyright{margin-top:25px;padding:10px;font-size:11px}.elemento-confianca{padding:10px!important;margin-top:12px!important}.texto-confianca{font-size:11px!important}.texto-garantia{font-size:12px!important;margin-top:12px!important}}
 @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 `}</style>
 
@@ -238,7 +240,7 @@ export default function HomePage() {
           </div>
         )}
 
-        {/* CONTEÚDO PRINCIPAL */}
+        {/* CONTEÚDO PRINCIPAL OTIMIZADO */}
         <div className="main-content">
           <div className="container-preto">
             {/* LOGO (mantém igual) */}
@@ -261,35 +263,24 @@ export default function HomePage() {
               />
             </div>
 
-            {/* HEADLINE SIMPLES E PODEROSA */}
-<h1 className="titulo-principal">
-  ¿ELLA TE DEJÓ Y NO SABES QUÉ HACER?
-  <br />
-  ESTE MÉTODO TE LA DEVUELVE EN 21 DÍAS
-  <span style={{color: "#FFD700", display: "block", marginTop: "15px", fontSize: "22px"}}>
-    (Funciona aunque esté con otro)
-  </span>
-</h1>
+            {/* HEADLINE OTIMIZADA PARA ESPANHA */}
+            <h1 className="titulo-principal">
+              ¿Ella te dejó y quieres recuperarla?
+              <br />
+              <span style={{color: "#FFD700", display: "block", marginTop: "15px", fontSize: "28px"}}>
+                Descubre si es posible en tu caso
+              </span>
+              <span style={{color: "#e5e5e5", display: "block", marginTop: "10px", fontSize: "18px", fontWeight: "400"}}>
+                (Evaluación personalizada gratuita)
+              </span>
+            </h1>
 
-            {/* SUBTÍTULO SIMPLES */}
+            {/* SUBTÍTULO OTIMIZADO */}
             <p className="subtitulo">
-              ⏱️ Haz la evaluación de 2 minutos y obtén tu plan personalizado 👇
+              Evaluación rápida de 2 minutos - Resultados inmediatos
             </p>
 
-            {/* AVISO DE URGÊNCIA (igual ao emagrecimento) */}
-            <div style={{
-              background: "linear-gradient(135deg, #dc2626, #b91c1c)", 
-              padding: "12px", 
-              borderRadius: "10px", 
-              margin: "25px 0", 
-              color: "white", 
-              fontSize: "14px",
-              fontWeight: "600"
-            }}>
-              ⚠️ Atención: Si sales ahora, perderás tu turno. ¡Aprovecha esta oportunidad exclusiva!
-            </div>
-
-            {/* CTA SIMPLES */}
+            {/* CTA OTIMIZADO */}
             <button onClick={handleStart} disabled={isLoading || !isOnline} className="btn-quiz-pulsante">
               {isLoading ? (
                 <span style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
@@ -297,11 +288,24 @@ export default function HomePage() {
                 </span>
               ) : (
                 <span style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                  QUIERO MI PLAN AHORA
+                  EMPEZAR EVALUACIÓN
                   <ArrowRight style={{marginLeft: "12px", width: "22px", height: "22px"}} />
                 </span>
               )}
             </button>
+
+            {/* ELEMENTO DE CONFIANÇA SUTIL */}
+            <div className="elemento-confianca">
+              <p className="texto-confianca">
+                ✓ Más de 3.000 personas evaluadas  ✓ Método validado  ✓ Resultados reales
+              </p>
+            </div>
+
+            {/* GARANTIA SUTIL */}
+            <p className="texto-garantia">
+              <Shield style={{width: "16px", height: "16px"}} />
+              Información completamente confidencial
+            </p>
           </div>
         </div>
 
