@@ -219,16 +219,16 @@ export default function ResultPageOptimized() {
             <div className="bg-orange-600 rounded-xl p-4 mb-6 border-2 border-yellow-400 max-w-md mx-auto">
               <div className="text-center">
                 <p className="text-black font-bold mobile-description mb-2">
-                  ⏳ AGUARDE... O ACESSO SERÁ LIBERADO
+                  ⏳ ESPERA... EL ACCESO SERÁ LIBERADO
                 </p>
                 <p className="text-black mobile-small-text font-semibold mb-3">
-                  É importante assistir parte do vídeo para garantir o melhor resultado
+                  Es importante ver parte del video para garantizar el mejor resultado
                 </p>
                 
                 {/* Timer de liberação */}
                 <div className="bg-black/20 rounded-lg p-3 mb-3">
                   <p className="text-black font-bold mobile-small-text mb-1">
-                    LIBERANDO ACESSO EM:
+                    LIBERANDO ACCESO EN:
                   </p>
                   <div className="text-black font-black text-2xl">
                     {Math.floor(unlockTimer / 60)}:{(unlockTimer % 60).toString().padStart(2, '0')}
