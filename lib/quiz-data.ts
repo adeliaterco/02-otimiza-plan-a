@@ -104,7 +104,7 @@ export const quizSteps = [
     options: {
       masculino: [
         "🧐 Estoy aplicando contacto cero",
-        "�� Ella me ignora completamente",
+        "😢 Ella me ignora completamente",
         "❌ Me ha bloqueado en todas las redes sociales",
         "🤝 Hablamos solo de cosas necesarias",
         "🤔 Charlamos de vez en cuando",
@@ -117,7 +117,7 @@ export const quizSteps = [
         "❌ Me ha bloqueado en todas las redes sociales",
         "🤝 Hablamos solo de cosas necesarias",
         "🤔 Charlamos de vez en cuando",
-        "�� Seguimos siendo amigos",
+        "😌 Seguimos siendo amigos",
         "🔥 Hemos tenido encuentros íntimos después de la ruptura",
       ],
     },
@@ -191,38 +191,24 @@ export const quizSteps = [
       profileComplete: "90%",
     },
   },
+  // NOVA ETAPA BBC - VERSÃO SIMPLIFICADA
   {
     id: 11,
-    type: "educational_content",
     question: "MIENTRAS ANALIZO TU CASO, DESCUBRE LA CIENCIA QUE RESPALDA ESTE MÉTODO",
     description: "Una investigación reciente de la BBC revela por qué el PLAN A funciona a nivel neurológico.",
     options: ["CONTINUAR PARA VER MIS RESULTADOS"],
     elements: {
       newsLayout: true,
-      readingTime: "2 min de lectura",
-      credibilityBoost: true,
       profileComplete: "95%",
+      bbcNews: true,
     },
-    content: {
-      type: "news_article",
+    newsContent: {
       source: "BBC Mundo",
-      category: "Ciencia",
-      publishDate: "Hace 3 días",
+      title: "Neurotransmisores: La clave científica para reconquistar un amor perdido",
+      subtitle: "Investigadores descubren cómo activar químicos cerebrales específicos puede revertir una ruptura amorosa",
       author: "Dr. Elena Martínez, Neuropsicóloga",
-      headline: "Neurotransmisores: La clave científica para reconquistar un amor perdido",
-      subheadline: "Investigadores descubren cómo activar químicos cerebrales específicos puede revertir una ruptura amorosa",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop",
-      articleContent: [
-        "Un estudio revolucionario publicado en el Journal of Behavioral Neuroscience revela que es posible 'reactivar' los sentimientos románticos en una ex pareja mediante la estimulación controlada de neurotransmisores específicos.",
-        ""Los resultados son extraordinarios. En el 87% de los casos estudiados, logramos reactivar los circuitos neuronales del amor en menos de 21 días" - Dr. Michael Chen, Universidad de Stanford",
-        "La investigación, que siguió a 2.847 personas durante 18 meses, identificó tres neurotransmisores clave: dopamina (asociada al deseo), oxitocina (vinculación emocional) y serotonina (bienestar y felicidad).",
-        "El 'Protocolo de Reactivación Neuronal':",
-        "• Fase 1: Reseteo del sistema nervioso (días 1-7)",
-        "• Fase 2: Reactivación de la dopamina (días 8-14)",
-        "• Fase 3: Liberación de oxitocina (días 15-21)",
-        ""Lo más sorprendente es que funciona incluso cuando la persona inicialmente muestra resistencia o indiferencia", explica la Dra. Elena Martínez, quien lideró el estudio.",
-        "IMPORTANTE: Los expertos advierten que este método solo debe ser usado por personas genuinamente comprometidas con reconstruir una relación saludable."
-      ]
+      date: "Hace 3 días",
+      content: "Un estudio revolucionario publicado en el Journal of Behavioral Neuroscience revela que es posible reactivar los sentimientos románticos en una ex pareja mediante la estimulación controlada de neurotransmisores específicos. Los resultados son extraordinarios: en el 87% de los casos estudiados, lograron reactivar los circuitos neuronales del amor en menos de 21 días. La investigación identificó tres neurotransmisores clave: dopamina, oxitocina y serotonina."
     }
   },
   {
@@ -251,7 +237,7 @@ export const quizSteps = [
       profileComplete: "100%",
     },
   }
-];
+]
 
 export const bonuses = [
   {
@@ -268,7 +254,7 @@ export const bonuses = [
     description: "Qué hacer cuando todo parece perdido y tienes 72 horas para actuar.",
     details: ["✓ Plan de Acción Inmediata", "✓ Independencia Emocional", "✓ Comunicación Magnética"],
   },
-];
+]
 
 export const testimonials = [
   {
@@ -291,7 +277,7 @@ export const testimonials = [
     text: "Después de 6 meses separados, pensé que ya no tenía oportunidad. En el día 12 del Plan A me llamó llorando queriendo volver.",
     rating: 5,
   },
-];
+]
 
 export const socialProofMessages = [
   "¡Estás entre el 17% más decidido a reconquistar!",
@@ -304,43 +290,20 @@ export const socialProofMessages = [
   "Protocolo respaldado por Universidad de Stanford",
   "2.847 casos estudiados confirman efectividad del método",
   "87% de reactivación neuronal comprobada científicamente",
-];
+]
 
 // Función utilitaria para personalizar textos basados en el género
 export function getPersonalizedContent(content, gender) {
   if (typeof content === "string") {
-    return content;
+    return content
   }
 
   if (typeof content === "object" && content !== null) {
     if (content.masculino && content.feminino) {
-      return gender === "MASCULINO" ? content.masculino : content.feminino;
+      return gender === "MASCULINO" ? content.masculino : content.feminino
     }
-    return content;
+    return content
   }
 
-  return content;
-}
-
-// Función para renderizar contenido de artículo
-export function renderNewsContent(step) {
-  if (!step || !step.content || step.content.type !== "news_article") {
-    return null;
-  }
-
-  return {
-    header: {
-      source: step.content.source,
-      category: step.content.category,
-      publishDate: step.content.publishDate,
-      author: step.content.author,
-      readingTime: step.elements?.readingTime || "2 min de lectura"
-    },
-    article: {
-      headline: step.content.headline,
-      subheadline: step.content.subheadline,
-      image: step.content.image,
-      content: step.content.articleContent
-    }
-  };
+  return content
 }
