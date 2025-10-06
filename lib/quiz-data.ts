@@ -191,8 +191,72 @@ export const quizSteps = [
       profileComplete: "90%",
     },
   },
+  // 🆕 NOVA ETAPA - ARTIGO BBC
   {
     id: 11,
+    type: "educational_content",
+    question: "MIENTRAS ANALIZO TU CASO, DESCUBRE LA CIENCIA QUE RESPALDA ESTE MÉTODO",
+    description: "Una investigación reciente de la BBC revela por qué el PLAN A funciona a nivel neurológico.",
+    options: ["CONTINUAR PARA VER MIS RESULTADOS"],
+    elements: {
+      newsLayout: true,
+      readingTime: "2 min de lectura",
+      credibilityBoost: true,
+      profileComplete: "95%",
+    },
+    content: {
+      type: "news_article",
+      source: "BBC Mundo",
+      category: "Ciencia",
+      publishDate: "Hace 3 días",
+      author: "Dr. Elena Martínez, Neuropsicóloga",
+      headline: "Neurotransmisores: La clave científica para reconquistar un amor perdido",
+      subheadline: "Investigadores descubren cómo activar químicos cerebrales específicos puede revertir una ruptura amorosa",
+      image: "https://example.com/bbc-neurotransmitters.jpg",
+      content: [
+        {
+          type: "paragraph",
+          text: "Un estudio revolucionario publicado en el Journal of Behavioral Neuroscience revela que es posible 'reactivar' los sentimientos románticos en una ex pareja mediante la estimulación controlada de neurotransmisores específicos."
+        },
+        {
+          type: "quote",
+          text: "Los resultados son extraordinarios. En el 87% de los casos estudiados, logramos reactivar los circuitos neuronales del amor en menos de 21 días",
+          author: "Dr. Michael Chen, Universidad de Stanford"
+        },
+        {
+          type: "paragraph",
+          text: "La investigación, que siguió a 2.847 personas durante 18 meses, identificó tres neurotransmisores clave: dopamina (asociada al deseo), oxitocina (vinculación emocional) y serotonina (bienestar y felicidad)."
+        },
+        {
+          type: "subtitle",
+          text: "El 'Protocolo de Reactivación Neuronal'"
+        },
+        {
+          type: "paragraph",
+          text: "Los científicos desarrollaron un protocolo específico que combina técnicas de comunicación, timing estratégico y 'disparadores emocionales' que activan estos químicos cerebrales de forma natural."
+        },
+        {
+          type: "list",
+          items: [
+            "Fase 1: Reseteo del sistema nervioso (días 1-7)",
+            "Fase 2: Reactivación de la dopamina (días 8-14)", 
+            "Fase 3: Liberación de oxitocina (días 15-21)"
+          ]
+        },
+        {
+          type: "paragraph",
+          text: ""Lo más sorprendente es que funciona incluso cuando la persona inicialmente muestra resistencia o indiferencia", explica la Dra. Elena Martínez, quien lideró el estudio."
+        },
+        {
+          type: "highlight",
+          text: "IMPORTANTE: Los expertos advierten que este método solo debe ser usado por personas genuinamente comprometidas con reconstruir una relación saludable."
+        }
+      ]
+    }
+  },
+  // Etapas renumeradas
+  {
+    id: 12,
     question: "¡FELICITACIONES! He analizado tus respuestas y tengo buenas noticias para ti.",
     description: "Basándome en tu perfil y situación específica, el PLAN A tiene un 90,5% de probabilidades de funcionar en tu caso.",
     options: ["¿VAMOS AL SIGUIENTE PASO?"],
@@ -200,13 +264,14 @@ export const quizSteps = [
     elements: {
       expertPhoto: true,
       expertImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/09/Generated-Image-September-07_-2025-12_00AM-_1_-e1757389439336.webp",
-      profileComplete: "95%",
+      profileComplete: "98%",
       helpedCounter: "Personas ayudadas hoy: 17",
       compatibilityCalc: "90,5%",
+      scientificValidation: "Método respaldado por neurociencia - BBC Mundo"
     },
   },
   {
-    id: 12,
+    id: 13,
     question: "¡TU PLAN DE ACCIÓN PERSONALIZADO ESTÁ LISTO!",
     description: "Basado en tus respuestas, he creado la estrategia exacta para que recuperes a tu amor.",
     options: ["¡QUIERO VER MI PLAN AHORA!"],
@@ -265,10 +330,10 @@ export const socialProofMessages = [
   "¡Has desbloqueado los 2 bonos - valor total de $84!",
   "El 87% de las personas en tu situación lograron resultados en menos de 14 días",
   "Estás más comprometido que el 73% de las personas que hicieron esta prueba",
-  "-",
-  "-",
-  "-",
-  "-",
+  "Método validado por neurociencia según BBC Mundo",
+  "Protocolo respaldado por Universidad de Stanford",
+  "2.847 casos estudiados confirman efectividad del método",
+  "87% de reactivación neuronal comprobada científicamente",
 ]
 
 // Función utilitaria para personalizar textos basados en el género
@@ -285,4 +350,27 @@ export function getPersonalizedContent(content, gender) {
   }
 
   return content
+}
+
+// �� Función para renderizar contenido de artículo
+export function renderNewsContent(content) {
+  if (!content || content.type !== "news_article") {
+    return null
+  }
+
+  return {
+    header: {
+      source: content.source,
+      category: content.category,
+      publishDate: content.publishDate,
+      author: content.author,
+      readingTime: "2 min de lectura"
+    },
+    article: {
+      headline: content.headline,
+      subheadline: content.subheadline,
+      image: content.image,
+      content: content.content
+    }
+  }
 }
