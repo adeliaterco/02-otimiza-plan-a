@@ -83,7 +83,7 @@ export const quizSteps = [
       feminino: [
         "😔 Lidiar con la soledad y el vacío",
         "😢 La montaña rusa emocional: ira, tristeza, arrepentimiento",
-        "�� Lidiar con recuerdos y memorias",
+        "😐 Lidiar con recuerdos y memorias",
         "💔 Imaginarlo con otra mujer",
         "🤔 Darme cuenta de que los planes que hicimos nunca se harán realidad",
         "⚡ Otro",
@@ -191,7 +191,7 @@ export const quizSteps = [
       profileComplete: "90%",
     },
   },
-  // NOVA ETAPA BBC - VERSÃO SIMPLIFICADA
+  // 🆕 ETAPA 11 - APENAS COM CAMPOS PARA IMAGENS
   {
     id: 11,
     question: "MIENTRAS ANALIZO TU CASO, DESCUBRE LA CIENCIA QUE RESPALDA ESTE MÉTODO",
@@ -200,15 +200,11 @@ export const quizSteps = [
     elements: {
       newsLayout: true,
       profileComplete: "95%",
-      bbcNews: true,
-    },
-    newsContent: {
-      source: "BBC Mundo",
-      title: "Neurotransmisores: La clave científica para reconquistar un amor perdido",
-      subtitle: "Investigadores descubren cómo activar químicos cerebrales específicos puede revertir una ruptura amorosa",
-      author: "Dr. Elena Martínez, Neuropsicóloga",
-      date: "Hace 3 días",
-      content: "Un estudio revolucionario publicado en el Journal of Behavioral Neuroscience revela que es posible reactivar los sentimientos románticos en una ex pareja mediante la estimulación controlada de neurotransmisores específicos. Los resultados son extraordinarios: en el 87% de los casos estudiados, lograron reactivar los circuitos neuronales del amor en menos de 21 días. La investigación identificó tres neurotransmisores clave: dopamina, oxitocina y serotonina."
+      // 📸 CAMPOS PARA SUAS IMAGENS
+      newsImages: {
+        reportageImage: "INSIRA_AQUI_O_LINK_DA_IMAGEM_DA_REPORTAGEM",
+        callToActionImage: "INSIRA_AQUI_O_LINK_DA_IMAGEM_CHAMATIVA"
+      }
     }
   },
   {
