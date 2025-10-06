@@ -198,8 +198,8 @@ export const quizSteps = [
     options: ["CONTINUAR PARA VER MIS RESULTADOS"],
     elements: {
       scientificEvidence: true,
-      reportageImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/09/Generated-Image-September-07_-2025-12_00AM-_1_-e1757389439336.webp",
-      curiousImage: "https://nutricaoalimentos.shop/wp-content/uploads/2025/09/lg-9xvta-canva-couple-in-love-mafv-z4mya0.jpg",
+      reportageImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/10/reportagem-bbc.webp",
+      curiousImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/10/estudos-imagem-2.webp",
     },
   },
   {
