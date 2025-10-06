@@ -202,8 +202,8 @@ export const quizSteps = [
       profileComplete: "95%",
       // 📸 CAMPOS PARA SUAS IMAGENS
       newsImages: {
-        reportageImage: "INSIRA_AQUI_O_LINK_DA_IMAGEM_DA_REPORTAGEM",
-        callToActionImage: "INSIRA_AQUI_O_LINK_DA_IMAGEM_CHAMATIVA"
+        reportageImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/10/lg-wzm9D-captura-de-tela-2025-09-03-165602.png",
+        callToActionImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/10/lg-wzm9D-captura-de-tela-2025-09-03-165602.png"
       }
     }
   },
