@@ -83,7 +83,7 @@ export const quizSteps = [
       feminino: [
         "😔 Lidiar con la soledad y el vacío",
         "😢 La montaña rusa emocional: ira, tristeza, arrepentimiento",
-        "😐 Lidiar con recuerdos y memorias",
+        "�� Lidiar con recuerdos y memorias",
         "💔 Imaginarlo con otra mujer",
         "🤔 Darme cuenta de que los planes que hicimos nunca se harán realidad",
         "⚡ Otro",
@@ -106,7 +106,7 @@ export const quizSteps = [
         "🧐 Estoy aplicando contacto cero",
         "😢 Ella me ignora completamente",
         "❌ Me ha bloqueado en todas las redes sociales",
-        "🤝 Hablamos solo de cosas necesarias",
+        "�� Hablamos solo de cosas necesarias",
         "🤔 Charlamos de vez en cuando",
         "😌 Seguimos siendo amigos",
         "🔥 Hemos tenido encuentros íntimos después de la ruptura",
@@ -117,7 +117,7 @@ export const quizSteps = [
         "❌ Me ha bloqueado en todas las redes sociales",
         "🤝 Hablamos solo de cosas necesarias",
         "🤔 Charlamos de vez en cuando",
-        "😌 Seguimos siendo amigos",
+        "�� Seguimos siendo amigos",
         "🔥 Hemos tenido encuentros íntimos después de la ruptura",
       ],
     },
@@ -191,21 +191,16 @@ export const quizSteps = [
       profileComplete: "90%",
     },
   },
-  // 🆕 ETAPA 11 - APENAS COM CAMPOS PARA IMAGENS
   {
     id: 11,
     question: "MIENTRAS ANALIZO TU CASO, DESCUBRE LA CIENCIA QUE RESPALDA ESTE MÉTODO",
     description: "Una investigación reciente de la BBC revela por qué el PLAN A funciona a nivel neurológico.",
     options: ["CONTINUAR PARA VER MIS RESULTADOS"],
     elements: {
-      newsLayout: true,
-      profileComplete: "95%",
-      // 📸 CAMPOS PARA SUAS IMAGENS
-      newsImages: {
-        reportageImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/10/lg-wzm9D-captura-de-tela-2025-09-03-165602.png",
-        callToActionImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/10/lg-wzm9D-captura-de-tela-2025-09-03-165602.png"
-      }
-    }
+      scientificEvidence: true,
+      reportageImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/09/Generated-Image-September-07_-2025-12_00AM-_1_-e1757389439336.webp",
+      curiousImage: "https://nutricaoalimentos.shop/wp-content/uploads/2025/09/lg-9xvta-canva-couple-in-love-mafv-z4mya0.jpg",
+    },
   },
   {
     id: 12,
@@ -216,10 +211,9 @@ export const quizSteps = [
     elements: {
       expertPhoto: true,
       expertImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/09/Generated-Image-September-07_-2025-12_00AM-_1_-e1757389439336.webp",
-      profileComplete: "98%",
+      profileComplete: "95%",
       helpedCounter: "Personas ayudadas hoy: 17",
       compatibilityCalc: "90,5%",
-      scientificValidation: "Método respaldado por neurociencia - BBC Mundo"
     },
   },
   {
@@ -282,10 +276,10 @@ export const socialProofMessages = [
   "¡Has desbloqueado los 2 bonos - valor total de $84!",
   "El 87% de las personas en tu situación lograron resultados en menos de 14 días",
   "Estás más comprometido que el 73% de las personas que hicieron esta prueba",
-  "Método validado por neurociencia según BBC Mundo",
-  "Protocolo respaldado por Universidad de Stanford",
-  "2.847 casos estudiados confirman efectividad del método",
-  "87% de reactivación neuronal comprobada científicamente",
+  "-",
+  "-",
+  "-",
+  "-",
 ]
 
 // Función utilitaria para personalizar textos basados en el género
