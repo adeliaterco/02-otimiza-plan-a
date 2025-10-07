@@ -425,7 +425,7 @@ export default function HomePage() {
             {/* LOGO CENTRALIZADA */}
             <div className="logo-container">
               <Image
-                src="https://comprarplanseguro.shop/wp-content/uploads/2025/08/543af5ae-e239-4f03-a3a8-59c53717f3b9.webp"
+                src="https://comprarplanseguro.shop/wp-content/uploads/2025/10/c2b0ddda-8a7c-4554-a6c9-d57887b06149.webp"
                 alt="Logo Plan A"
                 width={120}
                 height={75}
@@ -441,7 +441,7 @@ export default function HomePage() {
             {/* NOVA HEADLINE IMPACTANTE */}
             <h1 className="titulo-quiz">
               <span className="emoji-alerta">🚨</span>
-              PRUEBA IMPACTANTE: ¿Por Qué Te Persigue a las 2 a.m. Pero Finge Que Te Olvidó?
+              PRUEBA IMPACTANTE: ¿Por Qué Ella Te Espía a las 2 a.m. Pero Finge Que Te Olvidó?
             </h1>
 
             {/* NOVO SUBTÍTULO COM GANCHO PSICOLÓGICO */}
