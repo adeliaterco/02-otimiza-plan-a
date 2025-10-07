@@ -481,8 +481,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="copyright">Plan A™ Todos los Derechos Reservados.</div>
       </div>
     </>
   )
