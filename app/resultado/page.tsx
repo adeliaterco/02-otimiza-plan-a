@@ -29,6 +29,21 @@ export default function ResultPageOptimized() {
   const [unlockTimer, setUnlockTimer] = useState(120) // 2 minutos
   const [accessCount, setAccessCount] = useState(31)
 
+  // ===== DEBUG MODE (mudar para false em produção) =====
+  const debugGA = true
+
+  // ===== FUNÇÃO PARA ENVIAR EVENTOS COM LOG =====
+  const enviarEventoComLog = (evento, dados = {}) => {
+    try {
+      if (debugGA) {
+        console.log(`🎯 GA Event: ${evento}`, dados)
+      }
+      enviarEvento(evento, dados)
+    } catch (error) {
+      console.error(`❌ Erro no evento ${evento}:`, error)
+    }
+  }
+
   useEffect(() => {
     const savedGender = localStorage.getItem("userGender")
     if (savedGender) setUserGender(savedGender)
@@ -37,7 +52,7 @@ export default function ResultPageOptimized() {
       setIsLoaded(true)
     }, 300)
 
-    // Simular compradores recientes
+    // Simular compradores recentes
     const interval = setInterval(() => {
       setRecentBuyers((prev) => {
         const increase = Math.floor(Math.random() * 2) + 1
@@ -45,18 +60,20 @@ export default function ResultPageOptimized() {
       })
     }, 45000)
 
-    // Registra visualización
-    try {
-      enviarEvento("visualizou_resultado_bloqueado")
-    } catch (error) {
-      console.error("Error al registrar evento:", error)
-    }
+    // ===== CORREÇÃO 1: EVENTO "VIU RESULTADO" =====
+    // Registra visualização da página de resultado
+    setTimeout(() => {
+      enviarEventoComLog("viu_resultado", {
+        timestamp: new Date().toISOString(),
+        user_gender: savedGender || "unknown"
+      })
+    }, 1000) // Delay para garantir que o GA carregou
 
     // Carrega script do VTurb
     const loadVTurbScript = () => {
-      if (!document.querySelector('script[src*="68dde566ac500e3a7ab11a13"]')) {
+      if (!document.querySelector('script[src*="68e16c28d6d27436628eb583"]')) {
         const script = document.createElement("script")
-        script.src = "https://scripts.converteai.net/82f5110e-2a80-4e42-8099-3ddebe9eedab/players/68dde566ac500e3a7ab11a13/v4/player.js"
+        script.src = "https://scripts.converteai.net/82f5110e-2a80-4e42-8099-3ddebe9eedab/players/68e16c28d6d27436628eb583/v4/player.js"
         script.async = true
         document.head.appendChild(script)
       }
@@ -78,7 +95,19 @@ export default function ResultPageOptimized() {
     } else if (showOverlay && unlockTimer <= 0) {
       // Remove overlay após 2 minutos
       setShowOverlay(false)
-      enviarEvento("pagina_desbloqueada")
+      
+      // ===== CORREÇÃO 3: EVENTOS DE DESBLOQUEIO =====
+      enviarEventoComLog("pagina_desbloqueada", {
+        tempo_espera: 120,
+        timestamp: new Date().toISOString()
+      })
+      
+      // Evento adicional para indicar que viu o resultado completo
+      setTimeout(() => {
+        enviarEventoComLog("viu_resultado_completo", {
+          timestamp: new Date().toISOString()
+        })
+      }, 500)
     }
   }, [unlockTimer, showOverlay])
 
@@ -91,16 +120,40 @@ export default function ResultPageOptimized() {
     return () => clearInterval(interval)
   }, [])
 
-  const handlePurchase = () => {
+  // ===== CORREÇÃO 2: FUNÇÃO DE COMPRA MELHORADA =====
+  const handlePurchase = (posicao = "principal") => {
     try {
-      enviarEvento("clicou_comprar", {
-        posicao: "principal",
-        overlay_ativo: showOverlay
+      // Garantir que o evento sempre dispare
+      enviarEventoComLog("clicou_comprar", {
+        posicao: posicao,
+        overlay_ativo: showOverlay,
+        timestamp: new Date().toISOString(),
+        user_gender: userGender || "unknown",
+        access_count: accessCount,
+        timer_remaining: unlockTimer
       })
+      
+      // Log adicional para debug
+      if (debugGA) {
+        console.log("🛒 Compra iniciada:", { 
+          posicao, 
+          overlay_ativo: showOverlay,
+          timer_remaining: unlockTimer 
+        })
+      }
     } catch (error) {
-      console.error("Error al registrar evento de clic:", error)
+      console.error("❌ Error al registrar evento de clic:", error)
     }
-    window.open("https://pay.hotmart.com/F100142422S?off=0p2j9dbs&checkoutMode=10&offDiscount=PLAN", "_blank")
+    
+    // Pequeno delay para garantir que o evento seja enviado antes do redirect
+    setTimeout(() => {
+      window.open("https://pay.hotmart.com/F100142422S?off=0p2j9dbs&checkoutMode=10&offDiscount=ACTIVADO", "_blank")
+    }, 150)
+  }
+
+  // ===== FUNÇÃO PARA CTAs ESPECÍFICOS =====
+  const handlePurchaseWithPosition = (position) => {
+    handlePurchase(position)
   }
 
   const getPersonalizedPronoun = () => {
@@ -157,7 +210,7 @@ export default function ResultPageOptimized() {
                 {/* Timer principal */}
                 <div className="bg-black/50 rounded-lg p-3">
                   <p className="text-red-300 font-bold mobile-description mb-2">
-                    ⏰ ESTA PÁGINA SAI DO AR EM:
+                    ⏰ ESTA PÁGINA SE DESCONECTA EN:
                   </p>
                   <div className="mobile-countdown font-black text-white">
                     <CountdownTimer minutes={57} seconds={23} />
@@ -195,7 +248,7 @@ export default function ResultPageOptimized() {
               
               <div className="max-w-2xl mx-auto mb-6 w-full">
                 <p className="mobile-description text-gray-300 mb-4 break-words">
-                  Mira este video donde 3 especialistas revelan el método exacto:
+                  Mira este video:
                 </p>
               </div>
             </div>
@@ -207,7 +260,7 @@ export default function ResultPageOptimized() {
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-red-600/20 rounded-xl sm:rounded-2xl animate-pulse"></div>
                   <div className="relative z-10 w-full mobile-video-container">
                     <vturb-smartplayer 
-                      id="vid-68dde566ac500e3a7ab11a13" 
+                      id="vid-68e16c28d6d27436628eb583" 
                       className="mobile-vturb-player"
                     ></vturb-smartplayer>
                   </div>
@@ -254,12 +307,6 @@ export default function ResultPageOptimized() {
                 animate={{ opacity: showOverlay ? 0.3 : 1, y: 0 }}
                 className="text-center"
               >
-                
-                {/* Badge de resultado */}
-                <div className="bg-green-600 text-white mobile-badge-padding rounded-full inline-block font-bold mobile-badge-text mb-4 animate-bounce">
-                  🎉 ¡TU RESULTADO ESTÁ LISTO!
-                </div>
-
                 {/* Headline do resultado */}
                 <h1 className="mobile-headline text-white mb-4 sm:mb-6 leading-tight max-w-full break-words">
                   🎯 <span className="text-green-400">¡FELICITACIONES!</span>
@@ -287,73 +334,76 @@ export default function ResultPageOptimized() {
                   </div>
                 </div>
 
-                {/* Transição para próxima seção */}
-                <p className="mobile-transition-text text-gray-300 mb-4 font-semibold max-w-full break-words px-2">
-                  Ahora que conoces tu resultado, descubre <span className="text-orange-400 font-bold">cómo aplicarlo</span>:
-                </p>
+                {/* CTA Button que estava abaixo do vídeo de depoimento */}
+                <motion.div
+                  animate={{
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Number.POSITIVE_INFINITY,
+                    repeatType: "reverse",
+                  }}
+                  className="mb-6 w-full"
+                >
+                  <Button
+                    onClick={() => handlePurchaseWithPosition("resultado_principal")}
+                    className="mobile-cta-secondary max-w-md mx-auto"
+                    onTouchStart={handleTouchFeedback}
+                  >
+                    <Play className="mobile-small-icon mr-2 flex-shrink-0" />
+                    <span className="mobile-cta-text truncate">
+                      <span className="mobile-show">QUIERO RESULTADOS</span>
+                      <span className="desktop-show">QUIERO LOS MISMOS RESULTADOS</span>
+                    </span>
+                  </Button>
+                </motion.div>
+
+                {/* ✅ NOVA SEÇÃO: PRINTS WHATSAPP - PROVA SOCIAL */}
+                <div className="mb-6 sm:mb-8 w-full">
+                  {/* Título da seção */}
+                  <h3 className="mobile-subsection-title font-bold text-white text-center mb-4 break-words">
+                    💬 <span className="text-pink-400">MIRA LO QUE DICEN</span> NUESTROS USUARIOS
+                  </h3>
+                  
+                  {/* Container das imagens */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-4">
+                    {/* Imagem 1 */}
+                    <div className="bg-white rounded-xl p-2 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                      <img 
+                        src="https://comprarplanseguro.shop/wp-content/uploads/2025/10/01-PROVA.webp" 
+                        alt="Print WhatsApp - Resultado positivo"
+                        className="w-full h-auto rounded-lg"
+                        loading="lazy"
+                      />
+                    </div>
+                    
+                    {/* Imagem 2 */}
+                    <div className="bg-white rounded-xl p-2 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                      <img 
+                        src="https://comprarplanseguro.shop/wp-content/uploads/2025/10/PROVA-2.webp" 
+                        alt="Print WhatsApp - Testemunho de sucesso"
+                        className="w-full h-auto rounded-lg"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Texto de reforço */}
+                  <div className="text-center">
+                    <p className="text-yellow-300 mobile-small-text font-bold break-words">
+                      🔥 Tú puedes ser el próximo en conseguir estos resultados
+                    </p>
+                  </div>
+                </div>
+
               </motion.div>
             </div>
           </div>
 
-          {/* ✅ SEÇÃO 4: PROVA SOCIAL (BLOQUEADO) */}
+          {/* ✅ SEÇÃO 4: NÚMEROS DE PROVA SOCIAL (BLOQUEADO) */}
           <div className="mobile-padding bg-gradient-to-r from-black to-gray-900 w-full">
             <div className="max-w-4xl mx-auto w-full">
-              <div className="text-center mb-6">
-                <h3 className="mobile-subsection-title font-bold text-white mb-2 max-w-full break-words">
-                  💬 <span className="text-orange-400">TESTIMONIO REAL</span> DE QUIEN YA LO LOGRÓ
-                </h3>
-                <p className="text-gray-300 mobile-small-text break-words">
-                  Escucha la historia de transformación usando exactamente el mismo método
-                </p>
-              </div>
-
-              {/* Depoimento em Vídeo */}
-              <div className="flex justify-center mb-6 sm:mb-8 w-full">
-                <div className="w-full max-w-xs">
-                  <div className="relative bg-black rounded-xl sm:rounded-2xl p-2 mobile-border-orange shadow-xl overflow-hidden w-full">
-                    
-                    {/* Header do Story */}
-                    <div className="flex items-center p-2 pb-1">
-                      <div className="mobile-avatar rounded-full border border-orange-400 overflow-hidden mr-2 flex-shrink-0">
-                        <div className="w-full h-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
-                          <span className="text-white font-bold mobile-avatar-text">FB</span>
-                        </div>
-                      </div>
-                      <div className="flex-1 text-left min-w-0">
-                        <h4 className="text-white font-bold mobile-name-text truncate">Facundo B.</h4>
-                        <p className="text-green-400 mobile-status-text font-semibold">✅ Reconciliado en 15 días</p>
-                      </div>
-                    </div>
-
-                    {/* Vídeo Story */}
-                    <div className="relative mobile-story-video bg-gray-900 rounded-xl overflow-hidden w-full">
-                      <script src="https://fast.wistia.com/player.js" async></script>
-                      <script src="https://fast.wistia.com/embed/3rj8vdh574.js" async type="module"></script>
-                      <wistia-player 
-                        media-id="3rj8vdh574" 
-                        aspect="0.5625"
-                        className="mobile-wistia-player"
-                      ></wistia-player>
-                    </div>
-
-                    {/* Footer com CTA */}
-                    <div className="p-2 text-center w-full">
-                      <Button
-                        onClick={handlePurchase}
-                        className="mobile-cta-secondary"
-                        onTouchStart={handleTouchFeedback}
-                      >
-                        <Play className="mobile-small-icon mr-1 flex-shrink-0" />
-                        <span className="mobile-cta-small-text truncate">
-                          <span className="mobile-show">QUIERO RESULTADOS</span>
-                          <span className="desktop-show">QUIERO LOS MISMOS RESULTADOS</span>
-                        </span>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               {/* Números de Prova Social */}
               <div className="mobile-grid max-w-2xl mx-auto w-full">
                 <div className="bg-gray-800 mobile-stats-padding rounded-lg mobile-border-orange text-center">
@@ -388,10 +438,10 @@ export default function ResultPageOptimized() {
                   {/* Preço */}
                   <div className="bg-black/20 rounded-lg mobile-price-padding mb-4 sm:mb-6 w-full">
                     <div className="text-center mb-4">
-                      <div className="mobile-price-main font-black text-yellow-300 mb-2">$19</div>
+                      <div className="mobile-price-main font-black text-yellow-300 mb-2">$14,99</div>
                       <div className="mobile-price-sub">
-                        <span className="line-through text-gray-400 mr-3">$99,90</span>
-                        <span className="text-green-400 font-bold">AHORRAS $80</span>
+                        <span className="line-through text-gray-400 mr-3">$99,99</span>
+                        <span className="text-green-400 font-bold">AHORRAS $85</span>
                       </div>
                     </div>
 
@@ -433,14 +483,14 @@ export default function ResultPageOptimized() {
                     className="mb-4 sm:mb-6 w-full"
                   >
                     <Button
-                      onClick={handlePurchase}
+                      onClick={() => handlePurchaseWithPosition("oferta_principal")}
                       size="lg"
                       className="mobile-cta-offer"
                       onTouchStart={handleTouchFeedback}
                     >
                       <span className="mobile-cta-offer-text text-center leading-tight break-words">
-                        <span className="mobile-show">💕 RECUPERAR - $19</span>
-                        <span className="desktop-show">💕 RECUPERAR AHORA POR $19</span>
+                        <span className="mobile-show">💕 RECUPERAR - $14,99</span>
+                        <span className="desktop-show">💕 RECUPERAR AHORA POR $14,99</span>
                       </span>
                       <ArrowRight className="mobile-icon-size ml-2 flex-shrink-0" />
                     </Button>
@@ -532,7 +582,7 @@ export default function ResultPageOptimized() {
               <div className="bg-black/20 backdrop-blur-sm rounded-xl sm:rounded-2xl mobile-final-padding mobile-border-yellow w-full">
                 <h2 className="mobile-final-title font-black text-white mb-4 break-words">⏰ ÚLTIMA OPORTUNIDAD</h2>
                 <p className="mobile-final-subtitle text-white mb-4 sm:mb-6 font-semibold break-words">
-                  Esta oferta expira en minutos. Después vuelve a $99,90.
+                  Esta oferta expira en minutos. Después vuelve a $99,99.
                 </p>
 
                 <div className="bg-red-800 mobile-final-countdown-padding rounded-lg mb-4 sm:mb-6 w-full">
@@ -554,7 +604,7 @@ export default function ResultPageOptimized() {
                   className="w-full"
                 >
                   <Button
-                    onClick={handlePurchase}
+                    onClick={() => handlePurchaseWithPosition("cta_final")}
                     size="lg"
                     className="mobile-cta-final"
                     onTouchStart={handleTouchFeedback}
@@ -872,23 +922,6 @@ export default function ResultPageOptimized() {
             line-height: 1;
           }
 
-          .mobile-avatar {
-            width: clamp(1.75rem, 5vw, 2rem);
-            height: clamp(1.75rem, 5vw, 2rem);
-          }
-
-          .mobile-avatar-text {
-            font-size: clamp(0.625rem, 2vw, 0.75rem);
-          }
-
-          .mobile-name-text {
-            font-size: clamp(0.75rem, 2.5vw, 0.875rem);
-          }
-
-          .mobile-status-text {
-            font-size: clamp(0.625rem, 2vw, 0.75rem);
-          }
-
           /* ===== ÍCONES RESPONSIVOS ===== */
           .mobile-icon-size {
             width: clamp(1.25rem, 4vw, 1.5rem);
@@ -932,7 +965,7 @@ export default function ResultPageOptimized() {
             border: clamp(2px, 1vw, 4px) solid rgb(250 204 21);
           }
 
-                    .mobile-border-green {
+          .mobile-border-green {
             border: clamp(2px, 1vw, 4px) solid rgb(34 197 94);
           }
 
@@ -978,15 +1011,17 @@ export default function ResultPageOptimized() {
 
           .mobile-cta-secondary {
             width: 100% !important;
+            max-width: 24rem !important;
+            margin: 0 auto !important;
             background: linear-gradient(to right, rgb(249 115 22), rgb(220 38 38)) !important;
             color: white !important;
             font-weight: 700 !important;
-            padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.5rem, 2vw, 0.75rem) !important;
+            padding: clamp(0.75rem, 3vw, 1rem) clamp(1rem, 4vw, 1.5rem) !important;
             border-radius: 9999px !important;
-            font-size: clamp(0.75rem, 2.5vw, 0.875rem) !important;
+            font-size: clamp(0.875rem, 3vw, 1rem) !important;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25) !important;
             transition: all 0.3s ease !important;
-            min-height: clamp(2.25rem, 8vw, 2.5rem) !important;
+            min-height: clamp(2.75rem, 10vw, 3rem) !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -994,10 +1029,12 @@ export default function ResultPageOptimized() {
             touch-action: manipulation !important;
             -webkit-tap-highlight-color: transparent !important;
             user-select: none !important;
+            border: clamp(1px, 0.5vw, 2px) solid rgb(250 204 21) !important;
           }
 
           .mobile-cta-secondary:hover {
             background: linear-gradient(to right, rgb(234 88 12), rgb(185 28 28)) !important;
+            transform: scale(1.02) !important;
           }
 
           .mobile-cta-offer {
@@ -1114,45 +1151,6 @@ export default function ResultPageOptimized() {
             min-height: clamp(200px, 40vw, 400px) !important;
           }
 
-          .mobile-story-video {
-            aspect-ratio: 9/16 !important;
-            height: clamp(260px, 60vw, 320px) !important;
-            width: 100% !important;
-            max-width: 100% !important;
-          }
-
-          .mobile-wistia-player {
-            width: 100% !important;
-            height: 100% !important;
-            max-width: 100% !important;
-            display: block !important;
-            box-sizing: border-box !important;
-            border-radius: clamp(0.5rem, 2vw, 1rem) !important;
-            overflow: hidden !important;
-          }
-
-          wistia-player[media-id='3rj8vdh574']:not(:defined) { 
-            background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/3rj8vdh574/swatch') !important; 
-            display: block !important; 
-            filter: blur(5px) !important; 
-            padding-top: 177.78% !important; 
-            width: 100% !important;
-            max-width: 100% !important;
-            box-sizing: border-box !important;
-            border-radius: clamp(0.5rem, 2vw, 1rem) !important;
-            overflow: hidden !important;
-          }
-          
-          wistia-player {
-            border-radius: clamp(0.5rem, 2vw, 1rem) !important;
-            overflow: hidden !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            height: 100% !important;
-            display: block !important;
-            box-sizing: border-box !important;
-          }
-
           /* ===== OTIMIZAÇÕES PARA TELAS MUITO PEQUENAS ===== */
           @media (max-width: 375px) {
             .mobile-padding {
@@ -1181,6 +1179,7 @@ export default function ResultPageOptimized() {
             }
 
             .mobile-cta-primary,
+            .mobile-cta-secondary,
             .mobile-cta-offer,
             .mobile-cta-final {
               padding: 0.875rem 1rem !important;
@@ -1190,10 +1189,6 @@ export default function ResultPageOptimized() {
 
             .mobile-vturb-player {
               min-height: 180px !important;
-            }
-
-            .mobile-story-video {
-              height: 240px !important;
             }
           }
 
@@ -1307,10 +1302,6 @@ export default function ResultPageOptimized() {
             .mobile-vturb-player {
               min-height: 150px !important;
             }
-
-            .mobile-story-video {
-              height: 200px !important;
-            }
           }
 
           /* ===== OTIMIZAÇÕES PARA ACESSIBILIDADE ===== */
@@ -1392,6 +1383,11 @@ export default function ResultPageOptimized() {
           .relative > .absolute [role="button"] {
             pointer-events: none;
             opacity: 0.5;
+          }
+
+          /* ===== BADGE DE OFERTA RESPONSIVO ===== */
+          .mobile-offer-badge {
+            padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 4vw, 1.5rem);
           }
         `}</style>
       </div>
