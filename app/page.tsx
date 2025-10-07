@@ -54,6 +54,7 @@ export default function HomePage() {
     const timer = setTimeout(() => {
       enviarEvento("page_view", {
         device: window.innerWidth < 768 ? "mobile" : "desktop",
+        headline_version: "psychological_discovery_2am"
       })
     }, 1000)
 
@@ -67,7 +68,9 @@ export default function HomePage() {
     setIsLoading(true)
     setLoadingProgress(20)
 
-    enviarEvento("quiz_start")
+    enviarEvento("quiz_start", {
+      headline_version: "psychological_discovery_2am"
+    })
 
     let progress = 20
     const interval = setInterval(() => {
@@ -110,76 +113,251 @@ export default function HomePage() {
         }}
       >
         <style jsx>{`
-.btn-quiz-pulsante{background:linear-gradient(135deg,#dc2626 0%,#b91c1c 100%)!important;color:white!important;border:none!important;padding:18px 36px!important;font-size:19px!important;font-weight:bold!important;border-radius:50px!important;text-transform:uppercase!important;cursor:pointer!important;transition:all .3s ease!important;animation:pulsar-suave 3s infinite!important;width:100%!important;max-width:320px!important;box-shadow:0 8px 25px rgba(220,38,38,.4)!important;letter-spacing:.5px!important}
-@keyframes pulsar-suave{0%{transform:scale3d(1, 1, 1);box-shadow:0 8px 25px rgba(220,38,38,.4)}50%{transform:scale3d(1.02, 1.02, 1);box-shadow:0 12px 35px rgba(220,38,38,.6)}100%{transform:scale3d(1, 1, 1);box-shadow:0 8px 25px rgba(220,38,38,.4)}}
-.btn-quiz-pulsante:hover{background:linear-gradient(135deg,#b91c1c 0%,#991b1b 100%)!important;transform:scale(1.05)!important;box-shadow:0 15px 40px rgba(220,38,38,.7)!important}
-.container-preto{background:linear-gradient(145deg,#000 0%,#111 100%)!important;border:1px solid #444!important;border-radius:25px!important;padding:45px!important;max-width:650px!important;margin:0 auto!important;text-align:center!important;box-shadow:0 20px 60px rgba(0,0,0,.8)!important;backdrop-filter:blur(10px)!important;min-height: 400px;contain: layout style;}
-.titulo-principal{color:#fff!important;font-size:34px!important;font-weight:800!important;margin-bottom:25px!important;line-height:1.3!important;text-shadow:1px 1px 2px rgba(0,0,0,.3)!important;animation:fadeInUp 1.2s ease-out .3s both!important}
-.subtitulo{color:#e5e5e5!important;font-size:19px!important;margin-bottom:35px!important;font-weight:500!important;line-height:1.4!important;animation:fadeInUp 1.2s ease-out .6s both!important}
-.texto-garantia{color:#a3a3a3!important;font-size:14px!important;margin-top:15px!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;font-weight:500!important}
-.elemento-confianca{margin-top:20px!important;padding:15px!important;background:rgba(255,255,255,0.05)!important;border-radius:10px!important;border:1px solid rgba(255,255,255,0.1)!important}
-.texto-confianca{color:#a3a3a3!important;font-size:14px!important;margin:0!important;font-weight:500!important}
-.indicador-progresso{display:flex!important;align-items:center!important;justify-content:center!important;gap:12px!important;margin-bottom:30px!important;color:#dc2626!important;font-size:14px!important;font-weight:600!important;animation:fadeInUp 1.2s ease-out .9s both!important}
-.circulo-progresso{width:12px!important;height:12px!important;border-radius:50%!important;background:#dc2626!important;box-shadow:0 0 10px rgba(220,38,38,.5)!important}
-.circulo-inativo{background:#333!important;box-shadow:none!important}
-.depoimento{background: linear-gradient(145deg, #111 0%, #000 100%);
-  border: 1px solid #444;
-  border-radius: 18px;
-  padding: 18px;
-  max-width: 400px;
-  margin: 30px auto;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  min-height: 80px;
-  contain: layout;}
-.avatar{width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  border: 3px solid #FFD700;
-  flex-shrink: 0;
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-  overflow: hidden;
-  aspect-ratio: 1/1;}
-.estrelas{color:#FFD700;font-size:13px;text-shadow:0 0 5px rgba(255,215,0,.5)}
-.nome-usuario{color:#FFD700;font-weight:bold;font-size:13px}
-.texto-depoimento{color:#fff;font-size:12px;line-height:1.4;font-style:italic}
-.logo-container{display:flex;justify-content:center;align-items:center;margin-bottom:45px!important;animation:fadeInDown 1.2s ease-out}
-.logo-arredondada{border-radius: 15px !important;
-  width: 200px !important;
-  height: 120px !important;
-  object-fit: cover !important;
-  border: 4px solid #dc2626 !important;
-  box-shadow: 0 0 30px rgba(220, 38, 38, 0.4), 0 0 0 2px #dc2626 !important;
-  transition: all 0.4s ease !important;
-  display: block !important;
-  aspect-ratio: 5/3;}
-@keyframes fadeInDown{from{opacity:0;transform: translate3d(0, -40px, 0);}to{opacity:1;transform: translate3d(0, 0, 0);}}
-@keyframes fadeInUp{from{opacity:0;transform: translate3d(0, 40px, 0);}to{opacity:1;transform: translate3d(0, 0, 0);}}
-.loading-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.95);display:flex;align-items:center;justify-content:center;z-index:1000;backdrop-filter:blur(5px)}
-.loading-content{text-align:center;color:white}
-.progress-bar{width:250px;height:6px;background:#333;border-radius:3px;overflow:hidden;margin-top:25px}
-.progress-fill{height:100%;background:linear-gradient(90deg,#dc2626,#f87171);transition:width .3s ease;border-radius:3px}
-.main-content{display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding-top: 100px;
-  contain: layout style paint;}
-.copyright{position:relative;margin-top:40px;padding:20px;color:#888;font-size:12px;text-align:center}
-@media (max-width:768px){.container-preto{padding:25px!important;margin:10px!important;border-radius:20px!important}.logo-container{margin-bottom:30px!important}.logo-arredondada{width:160px!important;height:100px!important;border:3px solid #dc2626!important}.titulo-principal{font-size:26px!important;margin-bottom:18px!important;line-height:1.2!important}.subtitulo{font-size:16px!important;margin-bottom:25px!important}.depoimento{padding:15px;margin:20px auto;max-width:95%}.btn-quiz-pulsante{padding:16px 32px!important;font-size:16px!important;max-width:95%!important}.main-content{padding-top:20px;min-height:calc(100vh - 40px)}.copyright{margin-top:30px;padding:15px}.elemento-confianca{padding:12px!important;margin-top:15px!important}.texto-confianca{font-size:12px!important}}
-@media (max-width:480px){.container-preto{padding:20px!important;margin:5px!important}.logo-arredondada{width:140px!important;height:85px!important;border:2px solid #dc2626!important}.titulo-principal{font-size:22px!important;line-height:1.1!important}.subtitulo{font-size:14px!important}.depoimento{padding:12px;gap:10px;margin:15px auto}.avatar{width:35px;height:35px}.btn-quiz-pulsante{padding:14px 28px!important;font-size:14px!important}.copyright{margin-top:25px;padding:10px;font-size:11px}.elemento-confianca{padding:10px!important;margin-top:12px!important}.texto-confianca{font-size:11px!important}.texto-garantia{font-size:12px!important;margin-top:12px!important}}
-@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-`}</style>
+          .container-quiz {
+            background: linear-gradient(145deg, #000 0%, #111 100%);
+            border: 2px solid #333;
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 520px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,.8);
+          }
+
+          .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            width: 100%;
+          }
+
+          .logo-pequena {
+            border-radius: 10px;
+            border: 2px solid #dc2626;
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+            width: 120px;
+            height: 75px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+          }
+
+          .titulo-quiz {
+            color: #fff;
+            font-size: 26px;
+            font-weight: 700;
+            margin: 20px 0 20px 0;
+            line-height: 1.3;
+            text-align: left;
+          }
+
+          .emoji-alerta {
+            color: #dc2626;
+            font-size: 28px;
+            margin-right: 8px;
+          }
+
+          .subtitulo-quiz {
+            color: #e5e5e5;
+            font-size: 15px;
+            margin-bottom: 25px;
+            font-weight: 400;
+            line-height: 1.4;
+            text-align: left;
+          }
+
+          .destaque-palavra {
+            color: #dc2626;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #dc2626, #f87171);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+          }
+
+          .prova-social {
+            color: #dc2626;
+            font-weight: 600;
+            font-size: 16px;
+          }
+
+          .quiz-info {
+            display: flex;
+            justify-content: space-around;
+            margin: 25px 0;
+            padding: 15px;
+            background: rgba(220, 38, 38, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(220, 38, 38, 0.3);
+          }
+
+          .quiz-info > div {
+            color: #fff;
+            font-size: 12px;
+            font-weight: 500;
+          }
+
+          .btn-iniciar-quiz {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            border: none;
+            padding: 18px 32px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 320px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);
+          }
+
+          .btn-iniciar-quiz:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
+          }
+
+          .btn-iniciar-quiz:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+          }
+
+          .garantia-simples {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 20px;
+            color: #888;
+            font-size: 12px;
+          }
+
+          .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding-top: 20px;
+          }
+
+          .copyright {
+            position: relative;
+            margin-top: 40px;
+            padding: 20px;
+            color: #888;
+            font-size: 12px;
+            text-align: center;
+          }
+
+          .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+          }
+
+          .loading-content {
+            text-align: center;
+            color: white;
+          }
+
+          .progress-bar {
+            width: 250px;
+            height: 6px;
+            background: #333;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 25px;
+          }
+
+          .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #dc2626, #f87171);
+            transition: width .3s ease;
+            border-radius: 3px;
+          }
+
+          @media (max-width: 768px) {
+            .container-quiz {
+              padding: 30px 20px;
+              margin: 10px;
+              max-width: 95%;
+            }
+            
+            .titulo-quiz {
+              font-size: 22px;
+              text-align: center;
+            }
+
+            .subtitulo-quiz {
+              font-size: 14px;
+              text-align: center;
+            }
+            
+            .quiz-info {
+              flex-direction: column;
+              gap: 8px;
+              text-align: center;
+            }
+
+            .btn-iniciar-quiz {
+              font-size: 14px;
+              padding: 16px 28px;
+              max-width: 100%;
+            }
+
+            .copyright {
+              margin-top: 30px;
+              padding: 15px;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .container-quiz {
+              padding: 25px 15px;
+              margin: 5px;
+            }
+
+            .titulo-quiz {
+              font-size: 20px;
+            }
+
+            .subtitulo-quiz {
+              font-size: 13px;
+            }
+
+            .logo-pequena {
+              width: 100px;
+              height: 60px;
+            }
+
+            .emoji-alerta {
+              font-size: 24px;
+            }
+          }
+        `}</style>
 
         {/* Loading overlay */}
         {isLoading && (
           <div className="loading-overlay">
             <div className="loading-content">
-              <div style={{ fontSize: "18px", fontWeight: "600" }}>Preparando tu cuestionario personalizado...</div>
+              <div style={{ fontSize: "18px", fontWeight: "600" }}>Preparando tu evaluación personalizada...</div>
               <div className="progress-bar">
                 <div className="progress-fill" style={{ width: `${loadingProgress}%` }} />
               </div>
@@ -236,94 +414,76 @@ export default function HomePage() {
               zIndex: 1000,
             }}
           >
-            ⚠️ Sin conexión a internet
+            ⚠️ Sem conexão com a internet
           </div>
         )}
 
-        {/* CONTEÚDO PRINCIPAL OTIMIZADO */}
+        {/* CONTEÚDO PRINCIPAL COM NOVA COPY */}
         <div className="main-content">
-          <div className="container-preto">
-            {/* LOGO (mantém igual) */}
+          <div className="container-quiz">
+            
+            {/* LOGO CENTRALIZADA */}
             <div className="logo-container">
               <Image
                 src="https://comprarplanseguro.shop/wp-content/uploads/2025/08/543af5ae-e239-4f03-a3a8-59c53717f3b9.webp"
                 alt="Logo Plan A"
-                width={200}
-                height={120}
-                className="logo-arredondada"
+                width={120}
+                height={75}
+                className="logo-pequena"
                 priority
-                fetchPriority="high"
                 quality={70}
-                sizes="(max-width: 480px) 140px, (max-width: 768px) 160px, 200px"
-                placeholder="blur"
-                blurDataURL="data:image/webp;base64,UklGRpIAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA"
                 onError={(e) => {
                   e.target.style.display = "none"
                 }}
               />
             </div>
 
-            {/* HEADLINE OTIMIZADA PARA ESPANHA */}
-            <h1 className="titulo-principal">
-              ¿Ella te dejó y quieres recuperarla?
-              <br />
-              <span style={{color: "#FFD700", display: "block", marginTop: "15px", fontSize: "28px"}}>
-                Descubre si es posible en tu caso
-              </span>
-              <span style={{color: "#e5e5e5", display: "block", marginTop: "10px", fontSize: "18px", fontWeight: "400"}}>
-                (Evaluación personalizada gratuita)
-              </span>
+            {/* NOVA HEADLINE IMPACTANTE */}
+            <h1 className="titulo-quiz">
+              <span className="emoji-alerta">🚨</span>
+              PRUEBA IMPACTANTE: ¿Por Qué Te Persigue a las 2 a.m. Pero Finge Que Te Olvidó?
             </h1>
 
-            {/* SUBTÍTULO OTIMIZADO */}
-            <p className="subtitulo">
-              Evaluación rápida de 2 minutos - Resultados inmediatos
+            {/* NOVO SUBTÍTULO COM GANCHO PSICOLÓGICO */}
+            <p className="subtitulo-quiz">
+              El descubrimiento psicológico que el 97% de los hombres desconocen: existe <span className="destaque-palavra">UNA ÚNICA PALABRA</span> que rompe el ego femenino y la hace rogar por tu perdón... <span className="prova-social">3,847 hombres ya han descubierto cuál es la suya.</span>
             </p>
 
+            {/* INFORMAÇÕES DO QUIZ */}
+            <div className="quiz-info">
+              <div>⏱️ 2 minutos</div>
+              <div>🎯 Resultado instantáneo</div>
+              <div>🎁 100% gratuito</div>
+            </div>
+
             {/* CTA OTIMIZADO */}
-            <button onClick={handleStart} disabled={isLoading || !isOnline} className="btn-quiz-pulsante">
+            <button 
+              onClick={handleStart} 
+              disabled={isLoading || !isOnline} 
+              className="btn-iniciar-quiz"
+            >
               {isLoading ? (
-                <span style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                  PREPARANDO...
-                </span>
+                "PREPARANDO..."
               ) : (
-                <span style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                  EMPEZAR EVALUACIÓN
-                  <ArrowRight style={{marginLeft: "12px", width: "22px", height: "22px"}} />
-                </span>
+                <>
+                  DESCUBRIR MI PALABRA SECRETA
+                  <ArrowRight size={18} />
+                </>
               )}
             </button>
 
-            {/* ELEMENTO DE CONFIANÇA SUTIL */}
-            <div className="elemento-confianca">
-              <p className="texto-confianca">
-                ✓ Más de 3.000 personas evaluadas  ✓ Método validado  ✓ Resultados reales
-              </p>
+            {/* GARANTIA MÍNIMA */}
+            <div className="garantia-simples">
+              <Shield size={14} />
+              Completamente confidencial
             </div>
 
-            {/* GARANTIA SUTIL */}
-            <p className="texto-garantia">
-              <Shield style={{width: "16px", height: "16px"}} />
-              Información completamente confidencial
-            </p>
           </div>
         </div>
 
         {/* Copyright */}
         <div className="copyright">Plan A™ Todos los Derechos Reservados.</div>
-
-        <style jsx>{`
-          @keyframes spin {
-            0% {
-              transform: rotate(0deg);
-            }
-            100% {
-              transform: rotate(360deg);
-            }
-          }
-        `}</style>
       </div>
-      <script defer src="data:text/javascript,"></script>
     </>
   )
 }
